@@ -1,6 +1,10 @@
 ## This is my test!
-list time
-*okay
-*cool
-*meow
-**radical**
+
+I'm going to put a list in my test:
+
+* This
+* Is
+* A
+* List
+
+Cool. **Done**
