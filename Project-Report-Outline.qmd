@@ -16,8 +16,31 @@ Project overview. Written by all participants.
 
 ## Region of study - Tanaka
 
--   Information about the Lower Hudson region (as defined by LHPRISM)
--   Discussion of the climate and ecology of the region
+-   Location
+
+    -Southeastern New York (Westchester, Rockland, Putnam, Orange, parts of NYC)
+
+    -Includes Hudson River and estuary areas
+
+-   Climate:
+
+    -Temperate (4 seasons)
+
+    -Warm summers, cold winters
+
+    -Moderate rainfalls
+
+-   Ecology:
+
+    -Forests, wetlands, river systems
+
+    -High biodiversity
+
+-   Importance to project:
+
+    -Urban + natural mix (easier spread of invasive species)
+
+    -Dataset focuses on invasive species in this region
 
 ## Overview of the LHPRISM data set - Tommy and Mimi
 
