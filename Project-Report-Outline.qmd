@@ -26,14 +26,7 @@ Project overview. Written by all participants.
 -   Summary statistics and figures about major components of the data set (e.g., number of records, number of species, etc.)
 -   Should we put analyses of correlations and relationships among the variables in this section?
 
-## Spatial distribution of the data
-
--   Maps of the various locations and some relevant summary information
-    -   Number of records per location
-    -   Number of species per location
-    -   Some summary of coverage percentages?
-
-## Analysis of time / treatment effort required to eradication
+## Spacial distribution of the data
 
 -   Maps of the various locations and some relevant summary information
     -   Number of records per location
@@ -107,8 +100,5 @@ Project overview. Written by all participants.
 
         ```{r}
         ```
-
-## Conclusions and recommendations
-
 
 ## Conclusions and recommendations
