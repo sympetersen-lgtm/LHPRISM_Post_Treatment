@@ -102,3 +102,5 @@ Project overview. Written by all participants.
         ```
 
 ## Conclusions and recommendations
+
+Written by all participants.

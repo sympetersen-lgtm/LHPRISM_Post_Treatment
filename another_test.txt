@@ -1,3 +1,0 @@
-Here's another new text file.
-
-I've added another line to my text test file. Now I want to see if I can get a merge failure.
