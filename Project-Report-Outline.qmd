@@ -41,6 +41,7 @@ Project overview. Written by all participants.
     -   [**Missing data visualizatio**n]{.underline}
 -   Should we put analyses of correlations and relationships among the variables in this section?
     -   No, this is what data do we have not what does it tell us or what can we glean, **MISSSING DATA**
+-   In regards to reaching out, Mimi and I emailed Brent some of these initial question listed here and asked to meet on zoom about more specific ones.
 
 ## Spatial distribution of the data
 
