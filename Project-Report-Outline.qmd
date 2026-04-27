@@ -86,8 +86,6 @@ PRISMs deliver:
 
 The **Lower Hudson PRISM (LHPRISM)** covers the Lower Hudson Valley. It uses trained staff and community volunteers who go into the field, record invasive species, help with treatment projects, and upload data to a shared statewide database. This data is used for many environmental projects in the region.
 
-
-
 [https://nyis.info/wp-content/uploads/2024/08/prism-factsheet1.pdf](%0dhttps:/nyis.info/wp-content/uploads/2024/08/prism-factsheet1.pdf)
 
 -   **Information and background on the NYS Invasive Species lists**
@@ -240,6 +238,39 @@ The **Lower Hudson PRISM (LHPRISM)** covers the Lower Hudson Valley. It uses tra
     -   maybe see if there are any patterns when sorting by herbicide/treatment method?
 
     -   how many times did they need to visit a plot before eradication: look at total number of visits, and population numbers
+
+        ```{r}
+        ##HEMA17 population by site and visit_status_num
+        hogweed_pop <- lhprism_data %>%
+          filter(species_code == "HEMA17") %>%
+          arrange(site, desc(plant_count)) %>%
+          select(site, visit_date, visit_status_num, plant_count)
+
+        ```
+
+        ```{r}
+        ##KUDO population by site and visit_status_num
+        jknotweed_pop <- lhprism_data %>%
+          filter(species_code == "KUDO") %>%
+          arrange(site, desc(plant_count)) %>%
+          select(site, visit_date, visit_status_num, plant_count)
+        ```
+
+        ```{r}
+        ##CYSC4 population by site and visit_status_num
+        scotchbroom_pop <- lhprism_data %>%
+          filter(species_code == "CYSC4") %>%
+          arrange(site, desc(plant_count)) %>%
+          select(site, visit_date, visit_status_num, plant_count)
+        ```
+
+        ```{r}
+        ##SAGL12 population by site and visit_status_num
+        stickysage_pop <- lhprism_data %>%
+          filter(species_code == "SAGL12") %>%
+          arrange(site, desc(plant_count)) %>%
+          select(site, visit_date, visit_status_num, plant_count)
+        ```
 
 -   Description of the results of this analysis
 
