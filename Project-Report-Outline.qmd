@@ -2,6 +2,7 @@
 title: "Project Report Outline"
 format: docx
 editor: visual
+bibliography: reference.bib
 ---
 
 ## Executive summary
@@ -110,7 +111,7 @@ The **Lower Hudson PRISM (LHPRISM)** covers the Lower Hudson Valley. It uses tra
 
     <https://www.nynhp.org/invasives/species-tiers-table/>
 
-## Region of study
+## Region of study - Tanaka
 
 -   Information about the Lower Hudson region (as defined by LHPRISM)
 
@@ -141,6 +142,21 @@ The **Lower Hudson PRISM (LHPRISM)** covers the Lower Hudson Valley. It uses tra
     -Urban + natural mix (easier spread of invasive species)
 
     -Dataset focuses on invasive species in this region
+
+The study area for this project encompasses the Lower Hudson region, as delineated by the Lower Hudson Partnership for Regional Invasive Species Management (LH PRISM). Established as one of eight regional invasive species management groups across New York State, LH PRISM coordinates collaborative efforts among government agencies, conservation organizations, and landowners to monitor and manage invasive species at a regional scale [@lhprism2024]. The region includes Westchester, Dutchess, Putnam, Rockland, Orange, and Ulster counties, extending southward into the five boroughs of New York City [@lhprism2024; @nysdec2024].
+
+Geographically, the region is anchored by the Hudson River estuary, a highly dynamic tidal system in which freshwater inputs from inland watersheds interact with saltwater intrusion from the Atlantic Ocean. This estuarine gradient sustains a broad array of habitat types, including tidal wetlands, riparian corridors, freshwater marshes, and open aquatic environments, collectively rendering the Lower Hudson one of the most ecologically productive systems in the northeastern United States [@dec_aquatic2024]. The region also functions as a critical landscape transition zone, bridging the heavily urbanized New York City metropolitan area with the more rural and forested landscapes of the mid-Hudson Valley. This gradient of land use intensities is particularly significant in the context of biological invasions, as anthropogenic disturbance is well-documented as a primary driver of invasive species establishment and spread [@cornell2024; @nysdec2024].
+
+### Climate
+
+The Lower Hudson region is characterized by a humid temperate climate with four well-defined seasons. Summers are warm and humid, winters are cold with periodic snowfall, and precipitation is distributed relatively uniformly throughout the year, averaging approximately 40 to 50 inches annually [@noaa2024]. These climatic conditions support a wide diversity of native vegetation communities while simultaneously creating favorable thermal and moisture regimes for the establishment of non-native invasive species [@kunkel2013; @noaa2024]. Notably, climate projections for the northeastern United States indicate continued warming trends and increasing precipitation variability, conditions that are expected to further facilitate the range expansion of invasive species into previously unsuitable habitats [@kunkel2013].
+
+### Ecology
+
+The Lower Hudson region falls within the Eastern Temperate Forest biome and supports a mosaic of ecological communities, including mixed deciduous forests, freshwater wetlands, floodplain systems, and estuarine habitats [@nyheritage2021]. Dominant forest canopy species include oak (*Quercus* spp.), maple (*Acer* spp.), and hickory (*Carya* spp.), which provide structural complexity and support high levels of faunal biodiversity across the landscape [@nyheritage2021; @cornell2024]. The region's network of river systems and wetlands further contributes to its ecological significance, serving as corridors for both native wildlife and, unfortunately, the dispersal of invasive plant species [@dec_aquatic2024].
+
+The Lower Hudson region presents an ideal study area for analyzing invasive species distribution patterns given its unique combination of ecological diversity, landscape heterogeneity, and anthropogenic pressure. The juxtaposition of urban and natural land cover types creates conditions highly conducive to invasive species introduction, as disturbance-adapted non-native plants readily exploit habitat edges, degraded areas, and human-modified landscapes [@lhprism2024; @nysdec2024]. The dataset employed in this study, compiled through field surveys conducted by the Invasives Strike Force under the coordination of LH PRISM, provides spatially explicit records of invasive plant populations across a broad range of property types within this region. Species identifications in the dataset are standardized using codes from the USDA PLANTS Database, ensuring taxonomic consistency across observation records [@usda2024]. Together, the ecological characteristics of the Lower Hudson region and the availability of a robust regional dataset make this an appropriate and well-suited geographic context for the analyses undertaken in this project.
+
 
 ## Overview of the LHPRISM data set
 
@@ -252,4 +268,3 @@ The **Lower Hudson PRISM (LHPRISM)** covers the Lower Hudson Valley. It uses tra
 
 ## Conclusions and recommendations
 
-Written by all participants.
