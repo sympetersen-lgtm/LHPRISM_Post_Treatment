@@ -25,8 +25,9 @@ locations_lat <- lhprism_data$LAT
 locations_lng <- lhprism_data$LONG
 locations_names <- lhprism_data$PROPERTY_NAME
 
-# Remove incorrectly entered latitude value (point was in the ocean)
-locations_lat[234] <- NA
+# Fixed data point that in the ocean due to incorrect data entry.
+# Latitude of 40.0975937 changed to 40.975937 (Rye Nature Center)
+locations_lat[234] <- 40.975937
 
 # Build data frame with latitude and longitude values
 df <- data.frame(name = locations_names,
