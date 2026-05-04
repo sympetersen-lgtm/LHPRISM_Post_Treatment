@@ -239,8 +239,6 @@ The Lower Hudson region presents an ideal study area for analyzing invasive spec
 
     -   change in plant count over consecutive visits
 
-    -   visit_date \* visit_status_num
-
         ```{r}
         ##created a table to see how long does it take each species to move from one status to the next, sorting by site
         status_timing <- lhprism_data %>%
@@ -275,83 +273,85 @@ The Lower Hudson region presents an ideal study area for analyzing invasive spec
 
 -   Description of the results of this analysis
 
-    -   HEMA17
+    -   visit_status_num \* visit_date, examining how long it takes to progress to the next status for 4 target species
 
-        ```{r}
-        ##HEMA17 population by site and visit_status_num
-        hogweed_status <- lhprism_data %>%
-          filter(species_code == "HEMA17") %>%
-          arrange(site, desc(plant_count)) %>%
-          select(site, visit_date, visit_status_num, plant_count, gross_treat_sqft)
+        -   HEMA17
 
-        #plotting visit_status_num across time
-        ggplot(data = hogweed_status, aes(x = visit_date, y = visit_status_num, color = site)) +
-          geom_line() +
-          theme_minimal() +
-          facet_wrap(~site) +
-          theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5)) +
-          theme(axis.text.y = element_text(size = 5)) +
-          scale_y_reverse()
+            ```{r}
+            ##HEMA17 population by site and visit_status_num
+            hogweed_status <- lhprism_data %>%
+              filter(species_code == "HEMA17") %>%
+              arrange(site, desc(plant_count)) %>%
+              select(site, visit_date, visit_status_num, plant_count, gross_treat_sqft)
 
-        ##plant_count at each status level?
-        ##days/visits until new status, also days until relapse?
-        ```
+            #plotting visit_status_num across time
+            ggplot(data = hogweed_status, aes(x = visit_date, y = visit_status_num, color = site)) +
+              geom_line() +
+              theme_minimal() +
+              facet_wrap(~site) +
+              theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5)) +
+              theme(axis.text.y = element_text(size = 5)) +
+              scale_y_reverse()
 
-    -   PUMO
+            ##plant_count at each status level?
+            ##days/visits until new status, also days until relapse?
+            ```
 
-        ```{r}
-        ##PUMO population by site and visit_status_num
-        jknotweed_status <- lhprism_data %>%
-          filter(species_code == "PUMO") %>%
-          arrange(site, desc(plant_count)) %>%
-          select(site, visit_date, visit_status_num, plant_count, gross_treat_sqft)
+        -   PUMO
 
-        #PUMO visit_status_num over time
-        ggplot(data = jknotweed_status, aes(x = visit_date, y = visit_status_num, color = site)) +
-          geom_line() +
-          theme_minimal() +
-          facet_wrap(~site) +
-          theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5)) +
-          theme(axis.text.y = element_text(size = 5)) +
-          scale_y_reverse()
-        ```
+            ```{r}
+            ##PUMO population by site and visit_status_num
+            jknotweed_status <- lhprism_data %>%
+              filter(species_code == "PUMO") %>%
+              arrange(site, desc(plant_count)) %>%
+              select(site, visit_date, visit_status_num, plant_count, gross_treat_sqft)
 
-    -   CYSC4
+            #PUMO visit_status_num over time
+            ggplot(data = jknotweed_status, aes(x = visit_date, y = visit_status_num, color = site)) +
+              geom_line() +
+              theme_minimal() +
+              facet_wrap(~site) +
+              theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5)) +
+              theme(axis.text.y = element_text(size = 5)) +
+              scale_y_reverse()
+            ```
 
-        ```{r}
-        ##CYSC4 population by site and visit_status_num
-        scotchbroom_status <- lhprism_data %>%
-          filter(species_code == "CYSC4") %>%
-          arrange(site, desc(plant_count)) %>%
-          select(site, visit_date, visit_status_num, plant_count)
+        -   CYSC4
 
-        #CYSC4 visit_status_num over time
-        ggplot(data = scotchbroom_status, aes(x = visit_date, y = visit_status_num, color = site)) +
-          geom_line() +
-          theme_minimal() +
-          facet_wrap(~site) +
-          theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5)) +
-          theme(axis.text.y = element_text(size = 5)) +
-          scale_y_reverse()
-        ```
+            ```{r}
+            ##CYSC4 population by site and visit_status_num
+            scotchbroom_status <- lhprism_data %>%
+              filter(species_code == "CYSC4") %>%
+              arrange(site, desc(plant_count)) %>%
+              select(site, visit_date, visit_status_num, plant_count)
 
-    -   SAGL12
+            #CYSC4 visit_status_num over time
+            ggplot(data = scotchbroom_status, aes(x = visit_date, y = visit_status_num, color = site)) +
+              geom_line() +
+              theme_minimal() +
+              facet_wrap(~site) +
+              theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5)) +
+              theme(axis.text.y = element_text(size = 5)) +
+              scale_y_reverse()
+            ```
 
-        ```{r}
-        ##SAGL12 population by site and visit_status_num
-        stickysage_status <- lhprism_data %>%
-          filter(species_code == "SAGL12") %>%
-          arrange(site, desc(plant_count)) %>%
-          select(site, visit_date, visit_status_num, plant_count)
+        -   SAGL12
 
-        #PUMO visit_status_num over time
-        ggplot(data = stickysage_status, aes(x = visit_date, y = visit_status_num, color = site)) +
-          geom_line() +
-          theme_minimal() +
-          facet_wrap(~site) +
-          theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5)) +
-          theme(axis.text.y = element_text(size = 5)) +
-          scale_y_reverse()
-        ```
+            ```{r}
+            ##SAGL12 population by site and visit_status_num
+            stickysage_status <- lhprism_data %>%
+              filter(species_code == "SAGL12") %>%
+              arrange(site, desc(plant_count)) %>%
+              select(site, visit_date, visit_status_num, plant_count)
+
+            #PUMO visit_status_num over time
+            ggplot(data = stickysage_status, aes(x = visit_date, y = visit_status_num, color = site)) +
+              geom_line() +
+              theme_minimal() +
+              facet_wrap(~site) +
+              theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5)) +
+              theme(axis.text.y = element_text(size = 5)) +
+              scale_y_reverse()
+            ```
 
 ## Conclusions and recommendations
