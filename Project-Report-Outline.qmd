@@ -219,12 +219,78 @@ USDA Natural Resources Conservation Service. (2024). *PLANTS database*. <https:/
 
 -   Description of the methods used in this analysis
 
-    -   change in total plant count over consecutive visits
+    -   change in plant count over consecutive visits
+
     -   visit_date \* visit_status_num
-    -   maybe see if there are any patterns when sorting by herbicide?
+
+        ```{r}
+        ##created a table to see how long does it take each species to move from one status to the next, sorting by site
+        status_timing <- lhprism_data %>%
+          group_by(species_code, site, visit_status_num) %>%
+          summarise(first_date = min(visit_date), .groups = "drop") %>%
+          arrange(species_code, site, visit_status_num)
+
+        ##this does not account for status relapses (yet) as it only searches for the earliest date that each visit_status_num was recorded
+        ```
+
+    -   maybe see if there are any patterns when sorting by herbicide/treatment method?
+
     -   how many times did they need to visit a plot before eradication: look at total number of visits, and population numbers
 
--   Description of the results of this analysis
+        ```{r}
+        ##HEMA17 population by site and visit_status_num
+        hogweed_pop <- lhprism_data %>%
+          filter(species_code == "HEMA17") %>%
+          arrange(site, desc(plant_count)) %>%
+          select(site, visit_date, visit_status_num, plant_count)
+
+        ```
+
+        ```{r}
+        ##KUDO population by site and visit_status_num
+        jknotweed_pop <- lhprism_data %>%
+          filter(species_code == "KUDO") %>%
+          arrange(site, desc(plant_count)) %>%
+          select(site, visit_date, visit_status_num, plant_count)
+        ```
+
+        ```{r}
+        ##CYSC4 population by site and visit_status_num
+        scotchbroom_pop <- lhprism_data %>%
+          filter(species_code == "CYSC4") %>%
+          arrange(site, desc(plant_count)) %>%
+          select(site, visit_date, visit_status_num, plant_count)
+        ```
+
+        ```{r}
+        ##SAGL12 population by site and visit_status_num
+        stickysage_pop <- lhprism_data %>%
+          filter(species_code == "SAGL12") %>%
+          arrange(site, desc(plant_count)) %>%
+          select(site, visit_date, visit_status_num, plant_count)
+        ```
+-   How Many site codes have been Eradicated (5)
+
+```{r}
+lhprism_treated <-
+  lhprism_data %>%
+  filter(grepl("5", VISIT_STATUS_NUM)) %>%
+  mutate(Eradicated = ifelse(VISIT_STATUS_NUM == "5", 1, 0))
+
+```
+
+-   Count of visits 0-5 status
+
+```{r}
+Visit_num_vs_site_code <-
+  lhprism_data %>%
+  group_by(VISIT_STATUS_NUM, `Site Code`) %>%
+  count() %>%
+  filter(!is.na(`Site Code`)) %>%
+  pivot_wider(names_from = `Site Code`, values_from = n)
+lhprism_treated
+```
+-  Description of the results of this analysis
 
     -   HEMA17
 
@@ -245,6 +311,7 @@ USDA Natural Resources Conservation Service. (2024). *PLANTS database*. <https:/
 
         ```{r}
         ```
+
 
 ## Conclusions and recommendations
 
