@@ -259,75 +259,18 @@ The Lower Hudson region presents an ideal study area for analyzing invasive spec
         library(dplyr)
         library(ggplot2)
 
-        ##HEMA17 population by site and visit_status_num
-        hogweed_pop <- lhprism_data %>%
-          filter(species_code == "HEMA17") %>%
-          arrange(site, desc(plant_count)) %>%
-          select(site, visit_date, visit_status_num, plant_count, gross_treat_sqft)
-
-        #plotting visit_status_num across time
-        ggplot(data = hogweed_pop, aes(x = visit_date, y = visit_status_num, color = site)) +
-          geom_line() +
-          theme_minimal() +
-          facet_wrap(~site) +
-          theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5)) +
-          theme(axis.text.y = element_text(size = 5)) +
-          scale_y_reverse()
         ```
 
         ```{r}
-        ##PUMO population by site and visit_status_num
-        jknotweed_pop <- lhprism_data %>%
-          filter(species_code == "PUMO") %>%
-          arrange(site, desc(plant_count)) %>%
-          select(site, visit_date, visit_status_num, plant_count, gross_treat_sqft)
-
-        #PUMO visit_status_num over time
-        ggplot(data = jknotweed_pop, aes(x = visit_date, y = visit_status_num, color = site)) +
-          geom_line() +
-          theme_minimal() +
-          facet_wrap(~site) +
-          theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5)) +
-          theme(axis.text.y = element_text(size = 5)) +
-          scale_y_reverse()
-
-        ##plant_count at each status level
-        ##days/visits until new status, also days until relapse?
           
         ```
 
         ```{r}
-        ##CYSC4 population by site and visit_status_num
-        scotchbroom_pop <- lhprism_data %>%
-          filter(species_code == "CYSC4") %>%
-          arrange(site, desc(plant_count)) %>%
-          select(site, visit_date, visit_status_num, plant_count)
 
-        #CYSC4 visit_status_num over time
-        ggplot(data = scotchbroom_pop, aes(x = visit_date, y = visit_status_num, color = site)) +
-          geom_line() +
-          theme_minimal() +
-          facet_wrap(~site) +
-          theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5)) +
-          theme(axis.text.y = element_text(size = 5)) +
-          scale_y_reverse()
         ```
 
         ```{r}
-        ##SAGL12 population by site and visit_status_num
-        stickysage_pop <- lhprism_data %>%
-          filter(species_code == "SAGL12") %>%
-          arrange(site, desc(plant_count)) %>%
-          select(site, visit_date, visit_status_num, plant_count)
 
-        #PUMO visit_status_num over time
-        ggplot(data = stickysage_pop, aes(x = visit_date, y = visit_status_num, color = site)) +
-          geom_line() +
-          theme_minimal() +
-          facet_wrap(~site) +
-          theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5)) +
-          theme(axis.text.y = element_text(size = 5)) +
-          scale_y_reverse()
         ```
 
 -   Description of the results of this analysis
@@ -335,21 +278,80 @@ The Lower Hudson region presents an ideal study area for analyzing invasive spec
     -   HEMA17
 
         ```{r}
+        ##HEMA17 population by site and visit_status_num
+        hogweed_status <- lhprism_data %>%
+          filter(species_code == "HEMA17") %>%
+          arrange(site, desc(plant_count)) %>%
+          select(site, visit_date, visit_status_num, plant_count, gross_treat_sqft)
+
+        #plotting visit_status_num across time
+        ggplot(data = hogweed_status, aes(x = visit_date, y = visit_status_num, color = site)) +
+          geom_line() +
+          theme_minimal() +
+          facet_wrap(~site) +
+          theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5)) +
+          theme(axis.text.y = element_text(size = 5)) +
+          scale_y_reverse()
+
+        ##plant_count at each status level?
+        ##days/visits until new status, also days until relapse?
         ```
 
     -   PUMO
 
         ```{r}
+        ##PUMO population by site and visit_status_num
+        jknotweed_status <- lhprism_data %>%
+          filter(species_code == "PUMO") %>%
+          arrange(site, desc(plant_count)) %>%
+          select(site, visit_date, visit_status_num, plant_count, gross_treat_sqft)
+
+        #PUMO visit_status_num over time
+        ggplot(data = jknotweed_status, aes(x = visit_date, y = visit_status_num, color = site)) +
+          geom_line() +
+          theme_minimal() +
+          facet_wrap(~site) +
+          theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5)) +
+          theme(axis.text.y = element_text(size = 5)) +
+          scale_y_reverse()
         ```
 
     -   CYSC4
 
         ```{r}
+        ##CYSC4 population by site and visit_status_num
+        scotchbroom_status <- lhprism_data %>%
+          filter(species_code == "CYSC4") %>%
+          arrange(site, desc(plant_count)) %>%
+          select(site, visit_date, visit_status_num, plant_count)
+
+        #CYSC4 visit_status_num over time
+        ggplot(data = scotchbroom_status, aes(x = visit_date, y = visit_status_num, color = site)) +
+          geom_line() +
+          theme_minimal() +
+          facet_wrap(~site) +
+          theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5)) +
+          theme(axis.text.y = element_text(size = 5)) +
+          scale_y_reverse()
         ```
 
     -   SAGL12
 
         ```{r}
+        ##SAGL12 population by site and visit_status_num
+        stickysage_status <- lhprism_data %>%
+          filter(species_code == "SAGL12") %>%
+          arrange(site, desc(plant_count)) %>%
+          select(site, visit_date, visit_status_num, plant_count)
+
+        #PUMO visit_status_num over time
+        ggplot(data = stickysage_status, aes(x = visit_date, y = visit_status_num, color = site)) +
+          geom_line() +
+          theme_minimal() +
+          facet_wrap(~site) +
+          theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5)) +
+          theme(axis.text.y = element_text(size = 5)) +
+          scale_y_reverse()
         ```
 
 ## Conclusions and recommendations
