@@ -266,13 +266,11 @@ lhprism_data %>%
   arrange(desc(total_visits))
 ```
 
-
 ## Change through time
 
-First, let's find out which species were noted as eradicated.
-Note that eradicated is considered any site that has no target plants found upon search on the third year after treatment, which corresponds to a `visit_status_num` value of 5.
+First, let's find out which species were noted as eradicated. Note that eradicated is considered any site that has no target plants found upon search on the third year after treatment, which corresponds to a `visit_status_num` value of 5.
 
-There are `r length(unique(lhprism_data$species_code))` unique species codes in the data set. 
+There are `r length(unique(lhprism_data$species_code))` unique species codes in the data set.
 
 Of these, only three have any populations that were eradicated.
 
@@ -300,5 +298,54 @@ lhprism_data %>%
 ```
 
 
+## Practice ANOVA
 
+
+```{r}
+focal_spec <- c("CYSC4", "AREL8", "PUMO", "SAGL12", "HEMA17")
+
+lhprism_data %>%
+  filter(species_code %in% focal_spec) %>%
+  ggplot(data = ., aes(x = species_code, y = log_pu_count)) +
+  geom_boxplot() +
+  geom_jitter(width = 0.2, alpha =0.4) +
+  scale_fill_manual(values = cbPalette) +
+  xlab("Species Code") +
+  ylab("Log10 Pull-up Count") +
+  theme_minimal()
+
+focal_spec_lm <-
+  lhprism_data %>%
+  filter(species_code %in% focal_spec) %>%
+  lm(log_pu_count ~ species_code, data = .) 
+
+summary(focal_spec_lm)
+anova(focal_spec_lm)
+```
+
+**Critical thinking question:** Considering the assumptions of ANOVA (normality, homogeneity of variance, independence), do you think this is an appropriate test to use for this data set? Why or why not? If not, what other test(s) might be more appropriate?
+
+
+## Practice linear regression
+
+```{r}
+# examine relationship between visit_status_num and gross_sqft
+ggplot(data = lhprism_data, aes(x = gross_sqft, y = gross_treat_sqft)) +
+  geom_point() +
+  scale_y_log10() +
+  scale_x_log10() +
+  geom_smooth(method = "lm", se = FALSE, color = "red")
+
+# fit a linear regression model
+lm_model <- lm( log10(gross_treat_sqft + 0.1) ~ log10(gross_sqft +0.1), data = lhprism_data)
+summary(lm_model)
+```
+
+
+```{r}
+# example of a situation where regression *could* be used, but quantile regression might be more appropriate
+ggplot(data = lhprism_data, aes(x = gross_sqft, y = log_pu_count)) +
+  geom_point() +
+  scale_x_log10()
+```
 
