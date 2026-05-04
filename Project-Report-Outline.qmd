@@ -11,135 +11,99 @@ Project overview. Written by all participants.
 
 ## Introduction
 
-Ecosystems around the world face many threats — things like habitat loss, climate change, and pollution. One problem that people often overlook is the spread of invasive species. In New York State, this isn’t just a future worry. It’s something that scientists, state agencies, and local communities deal with every day.
+Ecosystems around the world face many threats — things like habitat loss, climate change, and pollution [@gentili2021]. One problem that people often overlook is the spread of invasive species [@usda2024]. In New York State, this isn't just a future worry. It's something that scientists, state agencies, and local communities deal with every day [@nysdec2024].
 
-This report uses field data from **the Lower Hudson Partnership for Regional Invasive Species Management (LHPRISM)** to look at where invasive species are found in the Lower Hudson Valley and how they are being managed. To understand why this data matters, it helps to know the bigger picture: what invasive species are, how New York State organizes its response, and what official plans guide decisions about which species to focus on.
+This report uses field data from the Lower Hudson Partnership for Regional Invasive Species Management (LHPRISM) to look at where invasive species are found in the Lower Hudson Valley and how they are being managed [@nysdec2024]. To understand why this data matters, it helps to know the bigger picture: what invasive species are, how New York State organizes its response, and what official plans guide decisions about which species to focus on.
 
--   **Background on invasive species**
+### Background on Invasive Species
 
-    At its most basic, an invasive species is any organism — plant, animal, insect, fungus, or microbe — that establishes itself outside its native range and causes meaningful harm to the environment, economy, or human health. The word "invasive" is doing a lot of work in that definition. Not every non-native species causes problems; in fact, most introduced species fail to survive at all in new environments. They arrive without the adaptations needed to handle unfamiliar climates, predators, and food sources, and they quietly die out. The ones that do establish themselves and thrive are the exception — but when they do, the consequences can be severe and long-lasting.
+At its most basic, an invasive species is any organism — plant, animal, insect, fungus, or microbe — that establishes itself outside its native range and causes meaningful harm to the environment, economy, or human health [@mack2000; @usda2024]. The word "invasive" is doing a lot of work in that definition. Not every non-native species causes problems; in fact, most introduced species fail to survive at all in new environments [@mack2000]. They arrive without the adaptations needed to handle unfamiliar climates, predators, and food sources, and they quietly die out. The ones that do establish themselves and thrive are the exception — but when they do, the consequences can be severe and long-lasting [@gentili2021].
 
-    What makes certain species so successful in new environments often comes down to a lack of natural checks. Back in their home range, they are kept in balance by predators, competitors, parasites, and other ecological forces that have co-evolved alongside them over thousands of years. When they land somewhere new, those controls disappear. Native species in the invaded area have no evolutionary history with this newcomer and may not recognize it as a threat, compete with it effectively, or survive in its presence. The invasive species, freed from its usual constraints, can reproduce rapidly, consume resources aggressively, and spread far beyond where it first appeared.
+What makes certain species so successful in new environments often comes down to a lack of natural checks [@mack2000]. Back in their home range, they are kept in balance by predators, competitors, parasites, and other ecological forces that have co-evolved alongside them over thousands of years. When they land somewhere new, those controls disappear [@mack2000]. Native species in the invaded area have no evolutionary history with this newcomer and may not recognize it as a threat, compete with it effectively, or survive in its presence [@usda2024]. The invasive species, freed from its usual constraints, can reproduce rapidly, consume resources aggressively, and spread far beyond where it first appeared [@gentili2021].
 
-    The pathways through which invasive species move around the world are closely tied to human activity. Global trade is one of the biggest drivers — cargo ships, shipping containers, and pallets of imported goods routinely carry hitchhiking organisms across continents and oceans. The pet trade has introduced countless exotic animals into new regions, and when those animals escape or are deliberately released, some find conditions favorable enough to establish wild populations. Ornamental horticulture has a long history of introducing plants that eventually escape garden boundaries and spread into natural areas. Even recreational activities like hiking, boating, and fishing can accidentally transport seeds, larvae, or spores from one watershed to another.
+The pathways through which invasive species move around the world are closely tied to human activity [@mack2000]. Global trade is one of the biggest drivers — cargo ships, shipping containers, and pallets of imported goods routinely carry hitchhiking organisms across continents and oceans [@usda2024]. The pet trade has introduced countless exotic animals into new regions, and when those animals escape or are deliberately released, some find conditions favorable enough to establish wild populations [@usda2024]. Ornamental horticulture has a long history of introducing plants that eventually escape garden boundaries and spread into natural areas [@mack2000]. Even recreational activities like hiking, boating, and fishing can accidentally transport seeds, larvae, or spores from one watershed to another [@nysdec2024].
 
-    The ecological damage caused by established invasive species takes many forms. Some are aggressive predators that decimate native prey populations before those populations have any chance to adapt. Others are competitors that crowd out native plants or animals from food, space, and other resources they need to survive. Over time, a successful invasion can fundamentally restructure an ecosystem — replacing native plant communities with monocultures, disrupting food webs, altering water cycles, and in the most severe cases, driving native species to local or even global extinction. Invasive species can also carry parasites and pathogens that spill over into native wildlife, compounding the damage further.
+The ecological damage caused by established invasive species takes many forms [@gentili2021]. Some are aggressive predators that decimate native prey populations before those populations have any chance to adapt [@mack2000]. Others are competitors that crowd out native plants or animals from food, space, and other resources they need to survive [@usda2024]. Over time, a successful invasion can fundamentally restructure an ecosystem — replacing native plant communities with monocultures, disrupting food webs, altering water cycles, and in the most severe cases, driving native species to local or even global extinction [@gentili2021; @mack2000]. Invasive species can also carry parasites and pathogens that spill over into native wildlife, compounding the damage furtherndefined \[@us
 
-    Beyond the ecological toll, invasive species impose enormous economic costs. Agricultural industries lose billions of dollars annually to crop damage from invasive pests and weeds. Forestry operations contend with invasive insects and diseases that kill commercially valuable trees. Water infrastructure is disrupted by organisms like zebra mussels that clog intake pipes and alter aquatic chemistry. And the cost of active management — detection, treatment, removal, and restoration — adds yet another layer to the financial burden. In densely populated and ecologically diverse states like New York, these costs are felt across sectors and communities.
+Beyond the ecological toll, invasive species impose enormous economic costs [@diagne2021]. Agricultural industries lose billions of dollars annually to crop damage from invasive pests and weeds [@diagne2021]. Forestry operations contend with invasive insects and diseases that kill commercially valuable trees [@mack2000]. Water infrastructure is disrupted by organisms like zebra mussels that clog intake pipes and alter aquatic chemistry [@usda2024]. And the cost of active management — detection, treatment, removal, and restoration — adds yet another layer to the financial burden [@diagne2021; @leung2002]. In densely populated and ecologically diverse states like New York, these costs are felt across sectors and communities [@nysdec2024].
 
-    New York is particularly exposed to invasive species pressure for several interconnected reasons. It sits at the hub of one of the busiest transportation networks on the eastern seaboard, with major ports, airports, highways, and rail lines that move enormous volumes of goods and people. Its landscape spans a remarkable range of ecosystems — coastal wetlands, deciduous forests, alpine zones, freshwater river systems — each of which represents a potential foothold for a different suite of invasive organisms. And its long history of settlement, agriculture, and land use transformation has already altered many native habitats in ways that make them more vulnerable to invasion. Put all of that together, and it becomes clear why New York has invested significantly in building a statewide infrastructure for invasive species management.
+New York is particularly exposed to invasive species pressure for several interconnected reasons [@nysdec2024]. It sits at the hub of one of the busiest transportation networks on the eastern seaboard, with major ports, airports, highways, and rail lines that move enormous volumes of goods and people [@nysdec2024]. Its landscape spans a remarkable range of ecosystems — coastal wetlands, deciduous forests, alpine zones, freshwater river systems — each of which represents a potential foothold for a different suite of invasive organisms [@nysdec2024]. And its long history of settlement, agriculture, and land use transformation has already altered many native habitats in ways that make them more vulnerable to invasion [@gentili2021]. Put all of that together, and it becomes clear why New York has invested significantly in building a statewide infrastructure for invasive species management [@nysdec2024].
 
-    <https://www.nyimapinvasives.org/>
+### Background on NYS DEC Invasive Species Programs and the PRISM System
 
-**Background on NYS DEC invasive species programs and the PRISM system**
+The New York State Department of Environmental Conservation (DEC) works with many groups — such as resource managers, non-profit organizations, industry workers, recreation groups, and other state agencies — to deal with invasive species [@nysdec2024]. To help with this work, New York created eight Partnerships for Regional Invasive Species Management (PRISMs) [@nysdec2024]. These PRISMs cover the entire state and help reduce the damage invasive species cause to New York's environment [@nysdec2016]. PRISMs were formed and funded under New York State law (Environmental Conservation Law 9-1705) [@nysdec2024].
 
-<https://dec.ny.gov/nature/invasive-species>
+PRISMs are groups of partners who work together to manage invasive species in different regions of New York [@nysdec2016]. They include people from federal and state agencies, environmental groups, scientists, industry, outdoor recreation, and local community members [@nysdec2024]. The DEC supports each PRISM through the Environmental Protection Fund, giving money to the organizations that host and coordinate them [@nysdec2024; @nysdec2016].
 
-The New York State Department of Environmental Conservation (DEC) works with many groups — such as resource managers, non‑profit organizations, industry workers, recreation groups, and other state agencies — to deal with invasive species. To help with this work, **New York created eight Partnerships for Regional Invasive Species Management (PRISMs).** These PRISMs cover the entire state and help reduce the damage invasive species cause to New York’s environment. PRISMs were formed and funded under New York State law (Environmental Conservation Law 9‑1705).
+### PRISMs carry out many important tasks, including:
 
-PRISMs are groups of partners who work together to manage invasive species in different regions of New York. They include people from federal and state agencies, environmental groups, scientists, industry, outdoor recreation, and local community members. The DEC supports each PRISM through the Environmental Protection Fund, giving money to the organizations that host and coordinate them.
+Planning invasive species management for their region [@nysdec2016]
 
-PRISMs carry out many important tasks, including:
+Running programs that help prevent new invasive species [@nysdec2016]
 
--   Planning invasive species management for their region
+Surveying and mapping where invasive species are found [@nysdec2024]
 
--   Running programs that help prevent new invasive species
+Finding new invasions early and responding quickly [@nysdec2016]
 
--   Surveying and mapping where invasive species are found
+Carrying out control and removal projects [@nysdec2016]
 
--   Finding new invasions early and responding quickly
+Restoring and monitoring habitats after treatment [@nysdec2024]
 
--   Carrying out control and removal projects
+Teaching people about invasive species and their impacts [@nysdec2024]
 
--   Restoring and monitoring habitats after treatment
+Bringing partners together to coordinate work [@nysdec2016]
 
--   Teaching people about invasive species and their impacts
+Recruiting and training volunteers [@nysdec2024]
 
--   Bringing partners together to coordinate work
+Supporting research through citizen science with the Invasive Species Research Institute [@nysdec2024]
 
--   Recruiting and training volunteers
+Reporting invasive species sightings to iMapInvasives [@nysdec2024]
 
--   Supporting research through citizen science with the Invasive Species Research Institute
+Providing education and outreach to communities [@nysdec2016]
 
--   Reporting invasive species sightings to iMapInvasives
+Since 2013, the DEC has contracted organizations to run all eight PRISMs across the state [@nysdec2016].
 
--   Providing education and outreach to communities
+### PRISMs deliver:
 
-Since 2013, the DEC has contracted organizations to run all eight PRISMs across the state.
+Regional planning for invasive species management [@nysdec2016]
 
-PRISMs deliver:
+Early detection and rapid response [@nysdec2016]
 
--   Regional planning for invasive species management
+Eradication and control projects [@nysdec2024]
 
--   Early detection and rapid response
+Education and outreach (with DEC-supported educators) [@nysdec2024]
 
--   Eradication and control projects
+Coordination among partners [@nysdec2016]
 
--   Education and outreach (with DEC‑supported educators)
+Volunteer training and involvement [@nysdec2024]
 
--   Coordination among partners
+Citizen-science support for research [@nysdec2024]
 
--   Volunteer training and involvement
+The DEC is the main state agency responsible for environmental protection in New York, and invasive species management is part of its work [@nysdec2024]. Because invasive species spread across boundaries, New York created PRISMs so each region can coordinate its efforts [@nysdec2024].
 
--   Citizen‑science support for research
+The Lower Hudson PRISM (LHPRISM) covers the Lower Hudson Valley [@nysdec2024]. It uses trained staff and community volunteers who go into the field, record invasive species, help with treatment projects, and upload data to a shared statewide database [@nysdec2024]. This data is used for many environmental projects in the region [@finley2023].
 
-    The DEC is the main state agency responsible for environmental protection in New York, and invasive species management is part of its work. Because invasive species spread across boundaries, New York created PRISMs so each region can coordinate its efforts.
+### Information and Background on the NYS Invasive Species Lists
 
-The **Lower Hudson PRISM (LHPRISM)** covers the Lower Hudson Valley. It uses trained staff and community volunteers who go into the field, record invasive species, help with treatment projects, and upload data to a shared statewide database. This data is used for many environmental projects in the region.
+Not every non-native species that shows up in New York needs immediate action [@leung2002]. Deciding which species deserve attention — and how urgent that attention should be — requires a clear system for evaluating risk [@leung2002]. New York State uses two main systems to do this: a regulatory list managed by the Department of Environmental Conservation (DEC) and a tiered priority system created through collaboration between the PRISM network, state agencies, and the New York Natural Heritage Program (NYNHP) [@nysdec2024; @nynhp2024].
 
-[https://nyis.info/wp-content/uploads/2024/08/prism-factsheet1.pdf](%0dhttps:/nyis.info/wp-content/uploads/2024/08/prism-factsheet1.pdf)
+The regulatory list, created under the Environmental Conservation Law, sorts species into two groups based on how harmful they are and what restrictions are needed [@nysdec2024].
 
--   **Information and background on the NYS Invasive Species lists**
+Prohibited species are considered so damaging, and so unnecessary for any legal use, that they cannot be possessed, sold, bought, transported, or introduced in New York at all [@nysdec2024]. There are no permits for these species — they are simply banned [@nysdec2024].
 
-    Not every non‑native species that shows up in New York needs immediate action. Deciding which species deserve attention — and how urgent that attention should be — requires a clear system for evaluating risk. New York State uses two main systems to do this: a **regulatory list** managed by the Department of Environmental Conservation (DEC) and a **tiered priority system** created through collaboration between the PRISM network, state agencies, and the New York Natural Heritage Program (NYNHP).
+Regulated species are more complicated [@nysdec2024]. They may have some allowed uses, but there are still rules in place to prevent them from spreading [@nysdec2024].
 
-    The **regulatory list**, created under the Environmental Conservation Law, sorts species into two groups based on how harmful they are and what restrictions are needed.
+Before a species is added to either category, experts review scientific information about its ecological impacts, how quickly it spreads, how feasible it is to control, and any economic or social considerations [@leung2002; @nysdec2024].
 
-    -   **Prohibited species** are considered so damaging, and so unnecessary for any legal use, that they cannot be possessed, sold, bought, transported, or introduced in New York at all. There are no permits for these species — they are simply banned.
+Alongside this legal framework, NYNHP created a tiering system to help PRISMs and other managers decide where to focus their limited time and resources [@nynhp2024]. Because New York has hundreds of invasive species, the tiering system uses a structured method that combines iMapInvasives data, invasiveness assessments, and expert input [@finley2023]. A species only receives a tier if it is considered to have high negative impacts [@nynhp2024]. Species that are present but not very harmful do not get tier assignments [@nynhp2024]. The tier definitions were finalized in 2017 through a statewide collaboration, giving all PRISMs a shared set of priorities [@nynhp2024; @finley2023].
 
-    -   **Regulated species** are more complicated. They may have some allowed uses, but there are still rules in place to prevent them from spreading.
+These tiers can change over time [@nynhp2024]. They depend on accurate data, so new reports or successful management efforts can shift a species' tier [@finley2023]. This is why reporting new sightings to iMapInvasives is strongly encouraged — better data leads to better decisions [@nynhp2024]. For the species included in this report, their presence in the LHPRISM dataset means they have already been evaluated, found to be high-impact, and identified as priorities for management in the Lower Hudson region [@finley2023; @nysdec2024].
 
-        Before a species is added to either category, experts review scientific information about its ecological impacts, how quickly it spreads, how feasible it is to control, and any economic or social considerations.
+Understanding this background — the regulatory status, the tier level, and the management history of each species — is important for interpreting the data and understanding what it means for ongoing conservation work in this part of New York State [@nysdec2024; @nynhp2024].
 
-    Alongside this legal framework, NYNHP created a **tiering system** to help PRISMs and other managers decide where to focus their limited time and resources. Because New York has hundreds of invasive species, the tiering system uses a structured method that combines iMapInvasives data, invasiveness assessments, and expert input (Finley et al., 2023). A species only receives a tier if it is considered to have **high negative impacts**. Species that are present but not very harmful do not get tier assignments. The tier definitions were finalized in 2017 through a statewide collaboration, giving all PRISMs a shared set of priorities.
 
-    These tiers can change over time. They depend on accurate data, so new reports or successful management efforts can shift a species’ tier. This is why reporting new sightings to iMapInvasives is strongly encouraged — better data leads to better decisions. For the species included in this report, their presence in the LHPRISM dataset means they have already been evaluated, found to be high‑impact, and identified as priorities for management in the Lower Hudson region.
-
-    Understanding this background — the regulatory status, the tier level, and the management history of each species — is important for interpreting the data and understanding what it means for ongoing conservation work in this part of New York State.
-
-    <https://www.nynhp.org/invasives/species-tiers-table/>
 
 ## Region of study - Tanaka
-
--   Information about the Lower Hudson region (as defined by LHPRISM)
-
--   Discussion of the climate and ecology of the region
-
--   Location
-
-    -Southeastern New York (Westchester, Rockland, Putnam, Orange, parts of NYC)
-
-    -Includes Hudson River and estuary areas
-
--   Climate:
-
-    -Temperate (4 seasons)
-
-    -Warm summers, cold winters
-
-    -Moderate rainfalls
-
--   Ecology:
-
-    -Forests, wetlands, river systems
-
-    -High biodiversity
-
--   Importance to project:
-
-    -Urban + natural mix (easier spread of invasive species)
-
-    -Dataset focuses on invasive species in this region
 
 The study area for this project encompasses the Lower Hudson region, as delineated by the Lower Hudson Partnership for Regional Invasive Species Management (LH PRISM). Established as one of eight regional invasive species management groups across New York State, LH PRISM coordinates collaborative efforts among government agencies, conservation organizations, and landowners to monitor and manage invasive species at a regional scale [@lhprism2024]. The region includes Westchester, Dutchess, Putnam, Rockland, Orange, and Ulster counties, extending southward into the five boroughs of New York City [@lhprism2024; @nysdec2024].
 
@@ -154,6 +118,24 @@ The Lower Hudson region is characterized by a humid temperate climate with four 
 The Lower Hudson region falls within the Eastern Temperate Forest biome and supports a mosaic of ecological communities, including mixed deciduous forests, freshwater wetlands, floodplain systems, and estuarine habitats [@nyheritage2021]. Dominant forest canopy species include oak (*Quercus* spp.), maple (*Acer* spp.), and hickory (*Carya* spp.), which provide structural complexity and support high levels of faunal biodiversity across the landscape [@nyheritage2021; @cornell2024]. The region's network of river systems and wetlands further contributes to its ecological significance, serving as corridors for both native wildlife and, unfortunately, the dispersal of invasive plant species [@dec_aquatic2024].
 
 The Lower Hudson region presents an ideal study area for analyzing invasive species distribution patterns given its unique combination of ecological diversity, landscape heterogeneity, and anthropogenic pressure. The juxtaposition of urban and natural land cover types creates conditions highly conducive to invasive species introduction, as disturbance-adapted non-native plants readily exploit habitat edges, degraded areas, and human-modified landscapes [@lhprism2024; @nysdec2024]. The dataset employed in this study, compiled through field surveys conducted by the Invasives Strike Force under the coordination of LH PRISM, provides spatially explicit records of invasive plant populations across a broad range of property types within this region. Species identifications in the dataset are standardized using codes from the USDA PLANTS Database, ensuring taxonomic consistency across observation records [@usda2024]. Together, the ecological characteristics of the Lower Hudson region and the availability of a robust regional dataset make this an appropriate and well-suited geographic context for the analyses undertaken in this project.
+
+**References**
+
+Cornell University Department of Natural Resources and the Environment. (2024). *Conservation priorities in the watershed*. <https://hudson.dnr.cals.cornell.edu/natural-areas-biodiversity/conservation-priorities-watershed>
+
+Kunkel, K. E., & others. (2013). *Regional climate trends and scenarios for the U.S. National Climate Assessment: Part 1. Climate of the Northeast U.S.* NOAA Technical Report NESDIS. <https://scenarios.globalchange.gov/sites/default/files/NOAA_NESDIS_Tech_Report_142-1-Climate_of_the_Northeast_US.pdf>
+
+Lower Hudson Partnership for Regional Invasive Species Management. (2024). *About NYS PRISM network and the Lower Hudson*. <https://www.lhprism.org/about-us/>
+
+National Centers for Environmental Information. (2024). *U.S. climate normals*. <https://www.ncei.noaa.gov/products/land-based-station/us-climate-normals>
+
+New York Natural Heritage Program. (2021). *Ecological communities of New York State*. <https://guides.nynhp.org/ecological-communities/>
+
+New York State Department of Environmental Conservation. (2024). *Aquatic habitats of the Hudson River Estuary*. <https://dec.ny.gov/nature/waterbodies/oceans-estuaries/hudson-river-estuary-program/aquatic-habitats>
+
+New York State Department of Environmental Conservation. (2024). *Invasive species*. <https://dec.ny.gov/nature/animals-fish-plants/invasive-species>
+
+USDA Natural Resources Conservation Service. (2024). *PLANTS database*. <https://plants.usda.gov>
 
 ## Overview of the LHPRISM data set
 
@@ -177,6 +159,7 @@ The Lower Hudson region presents an ideal study area for analyzing invasive spec
     -   [**Missing data visualizatio**n]{.underline}
 -   Should we put analyses of correlations and relationships among the variables in this section?
     -   No, this is what data do we have not what does it tell us or what can we glean, **MISSSING DATA**
+-   In regards to reaching out, Mimi and I emailed Brent some of these initial question listed here and asked to meet on zoom about more specific ones.
 
 ## Spatial distribution of the data
 
@@ -294,6 +277,16 @@ The Lower Hudson region presents an ideal study area for analyzing invasive spec
         ##plant_count at each status level
         ##days/visits until new status, also days until relapse?
           
+          select(site, visit_date, visit_status_num, plant_count)
+
+        ```
+
+        ```{r}
+        ##KUDO population by site and visit_status_num
+        jknotweed_pop <- lhprism_data %>%
+          filter(species_code == "KUDO") %>%
+          arrange(site, desc(plant_count)) %>%
+          select(site, visit_date, visit_status_num, plant_count)
         ```
 
         ```{r}
@@ -302,15 +295,6 @@ The Lower Hudson region presents an ideal study area for analyzing invasive spec
           filter(species_code == "CYSC4") %>%
           arrange(site, desc(plant_count)) %>%
           select(site, visit_date, visit_status_num, plant_count)
-
-        #CYSC4 visit_status_num over time
-        ggplot(data = scotchbroom_pop, aes(x = visit_date, y = visit_status_num, color = site)) +
-          geom_line() +
-          theme_minimal() +
-          facet_wrap(~site) +
-          theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5)) +
-          theme(axis.text.y = element_text(size = 5)) +
-          scale_y_reverse()
         ```
 
         ```{r}
@@ -331,6 +315,29 @@ The Lower Hudson region presents an ideal study area for analyzing invasive spec
         ```
 
 -   Description of the results of this analysis
+        ```
+-   How Many site codes have been Eradicated (5)
+
+```{r}
+lhprism_treated <-
+  lhprism_data %>%
+  filter(grepl("5", VISIT_STATUS_NUM)) %>%
+  mutate(Eradicated = ifelse(VISIT_STATUS_NUM == "5", 1, 0))
+
+```
+
+-   Count of visits 0-5 status
+
+```{r}
+Visit_num_vs_site_code <-
+  lhprism_data %>%
+  group_by(VISIT_STATUS_NUM, `Site Code`) %>%
+  count() %>%
+  filter(!is.na(`Site Code`)) %>%
+  pivot_wider(names_from = `Site Code`, values_from = n)
+lhprism_treated
+```
+-  Description of the results of this analysis
 
     -   HEMA17
 
@@ -351,5 +358,6 @@ The Lower Hudson region presents an ideal study area for analyzing invasive spec
 
         ```{r}
         ```
+
 
 ## Conclusions and recommendations
