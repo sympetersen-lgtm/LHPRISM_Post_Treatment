@@ -101,8 +101,6 @@ These tiers can change over time [@nynhp2024]. They depend on accurate data, so 
 
 Understanding this background — the regulatory status, the tier level, and the management history of each species — is important for interpreting the data and understanding what it means for ongoing conservation work in this part of New York State [@nysdec2024; @nynhp2024].
 
-
-
 ## Region of study - Tanaka
 
 The study area for this project encompasses the Lower Hudson region, as delineated by the Lower Hudson Partnership for Regional Invasive Species Management (LH PRISM). Established as one of eight regional invasive species management groups across New York State, LH PRISM coordinates collaborative efforts among government agencies, conservation organizations, and landowners to monitor and manage invasive species at a regional scale [@lhprism2024]. The region includes Westchester, Dutchess, Putnam, Rockland, Orange, and Ulster counties, extending southward into the five boroughs of New York City [@lhprism2024; @nysdec2024].
@@ -236,36 +234,8 @@ USDA Natural Resources Conservation Service. (2024). *PLANTS database*. <https:/
 
     -   how many times did they need to visit a plot before eradication: look at total number of visits, and population numbers
 
-        ```{r}
-        library(dplyr)
-        library(ggplot2)
-
-        ```
-
-        ```{r}
-          
-          select(site, visit_date, visit_status_num, plant_count)
-
-        ```
-
-        ```{r}
-        ##KUDO population by site and visit_status_num
-        jknotweed_pop <- lhprism_data %>%
-          filter(species_code == "KUDO") %>%
-          arrange(site, desc(plant_count)) %>%
-          select(site, visit_date, visit_status_num, plant_count)
-        ```
-
-        ```{r}
-
-        ```
-
-        ```{r}
-
-        ```
-
 -   Description of the results of this analysis
-        ```
+
 -   How Many site codes have been Eradicated (5)
 
 ```{r}
@@ -287,7 +257,8 @@ Visit_num_vs_site_code <-
   pivot_wider(names_from = `Site Code`, values_from = n)
 lhprism_treated
 ```
--  Description of the results of this analysis
+
+-   Description of the results of this analysis
 
     -   visit_status_num \* visit_date, examining how long it takes to progress to the next status for 4 target species
 
@@ -369,6 +340,5 @@ lhprism_treated
               theme(axis.text.y = element_text(size = 5)) +
               scale_y_reverse()
             ```
-
 
 ## Conclusions and recommendations
