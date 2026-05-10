@@ -101,8 +101,6 @@ These tiers can change over time [@nynhp2024]. They depend on accurate data, so 
 
 Understanding this background — the regulatory status, the tier level, and the management history of each species — is important for interpreting the data and understanding what it means for ongoing conservation work in this part of New York State [@nysdec2024; @nynhp2024].
 
-
-
 ## Region of study - Tanaka
 
 The study area for this project encompasses the Lower Hudson region, as delineated by the Lower Hudson Partnership for Regional Invasive Species Management (LH PRISM). Established as one of eight regional invasive species management groups across New York State, LH PRISM coordinates collaborative efforts among government agencies, conservation organizations, and landowners to monitor and manage invasive species at a regional scale [@lhprism2024]. The region includes Westchester, Dutchess, Putnam, Rockland, Orange, and Ulster counties, extending southward into the five boroughs of New York City [@lhprism2024; @nysdec2024].
@@ -139,184 +137,325 @@ USDA Natural Resources Conservation Service. (2024). *PLANTS database*. <https:/
 
 ## Overview of the LHPRISM data set
 
--   Description of the data set and its contents
-    -   An environmental monitoring dataset from the Lower Hudson Partnership for Regional Invasive Species Management focused on invasive species treatment in the Hudson Valley.
+- Description of the data set and its contents
+  - An environmental monitoring dataset from the Lower Hudson Partnership for Regional Invasive Species Management focused on invasive species treatment in the Hudson Valley.
 
-    -   What each record represents: A plot or site where invasive species were identified, treated, and monitored over time (3-year follow-up).
+  - What each record represents: A plot or site where invasive species were identified, treated, and monitored over time (3-year follow-up).
 
-    -   Key variables: Location info ( site, participant) species present (abundance/cover) treatment type (chemical/method used) treatment timing (initial + follow-ups) monitoring outcomes (change in invasive presence over time) Missing/NULL values (HUGE PROBLEM WHAT TO SAY ABOUT MISSING DATA ITS EVERYWHERE)
--   Description of data collection methods (will require communication with LHPRISM staff)
-    -   Field surveys conducted at designated plots, identification of invasive species and estimation of their abundance, application of treatment, follow up monitoring intervals (yearly for 3 years)
+  - Key variables: Location info ( site, participant) species present (abundance/cover) treatment type (chemical/method used) treatment timing (initial + follow-ups) monitoring outcomes (change in invasive presence over time) Missing/NULL values (HUGE PROBLEM WHAT TO SAY ABOUT MISSING DATA ITS EVERYWHERE)
+- Description of data collection methods (will require communication with LHPRISM staff)
+  - Field surveys conducted at designated plots, identification of invasive species and estimation of their abundance, application of treatment, follow up monitoring intervals (yearly for 3 years)
 
-    -   NEED to zoom with Brent (whether plots are randomly selected or targeted, this matters a lot, whether measurement methods are standardized)
+  - NEED to zoom with Brent (whether plots are randomly selected or targeted, this matters a lot, whether measurement methods are standardized)
 
-    -   More questions: what defines a “plot”, [**what do NULL values represent**]{.underline} ,monitoring consistency? known biases (sites chosen because they were heavily bad)
--   Summary statistics and figures about major components of the data set (e.g., number of records, number of species, etc.)
-    -   Total number of rows, number of unique plots, number of invasive species tracked number of treatment types, time span
+  - More questions: what defines a “plot”, [**what do NULL values represent**]{.underline} ,monitoring consistency? known biases (sites chosen because they were heavily bad)
+- Summary statistics and figures about major components of the data set (e.g., number of records, number of species, etc.)
+  - Total number of rows, number of unique plots, number of invasive species tracked number of treatment types, time span
 
-    -   Figures? Histogram of number of species, count of treatments applied
+  - Figures? Histogram of number of species, count of treatments applied
 
-    -   [**Missing data visualizatio**n]{.underline}
--   Should we put analyses of correlations and relationships among the variables in this section?
-    -   No, this is what data do we have not what does it tell us or what can we glean, **MISSSING DATA**
--   In regards to reaching out, Mimi and I emailed Brent some of these initial question listed here and asked to meet on zoom about more specific ones.
+  - [**Missing data visualizatio**n]{.underline}
+- Should we put analyses of correlations and relationships among the variables in this section?
+  - No, this is what data do we have not what does it tell us or what can we glean, **MISSSING DATA**
+- In regards to reaching out, Mimi and I emailed Brent some of these initial question listed here and asked to meet on zoom about more specific ones.
 
 ## Spatial distribution of the data
 
--   Maps of the various locations and some relevant summary information
-    -   Number of records per location
-    -   Number of species per location
-    -   Some summary of coverage percentages?
--   Will use Leaflet to create maps in R
-    -   Map of all property locations using long and lat data in the Populations tab
-        -   Density map could reveal which areas are most treated
-    -   Map of all treatments, color-coded by species
+- Leaflet maps of populations
+
+```{r}
+library(leaflet)
+library(readxl)  # for Excel files
+library(tidyverse)
+library(here)
+
+# Navigate to the Excel sheet
+proj_path <- here()
+proj_path <- paste0(proj_path, "/data/Pace Data Project Invasives Strike Force Records.xlsx")
+
+# Read in sheet 2 of the Excel spreadsheet (populations)
+lhprism_data <- read_excel(path = proj_path, sheet = 2)
+
+# Remove NA values
+lhprism_data <- lhprism_data %>%
+  filter(!is.na(LONG))
+
+# Isolate Latitude, Longitude, Population status and Property name
+location_name <- lhprism_data$PROPERTY_NAME
+location_lat <- lhprism_data$LAT
+location_lng <- lhprism_data$LONG
+
+# Fixed data point that in the ocean due to incorrect data entry.
+# Latitude of 40.0975937 changed to 40.975937 (Rye Nature Center)
+location_lat[234] <- 40.975937
+
+# Build data frame with latitude and longitude values
+df1 <- data.frame(name = location_name,
+                 lat = location_lat,
+                 lng = location_lng)
+# Create leaflet map object
+m1 <- leaflet()
+
+# Generate points for each population's coordinates
+# Click on each point to see the Property Name
+m1 %>%
+  addTiles() %>%
+  addMarkers(data = df1, popup = location_name)
+
+```
+
+Map 1: Locations of each treatment population. If viewing the interactive map, clicking on each point will bring up its associated property name (e.g. Rye Nature Center).
+
+```{r}
+# Fix status text: ""1-Partially Treated" instead of "1- Partially Treated""
+lhprism_data$POP_STATUS[3] <- "1- Partially Treated"
+lhprism_data$POP_STATUS[7] <- "1- Partially Treated"
+lhprism_data$POP_STATUS[10] <- "1- Partially Treated"
+lhprism_data$POP_STATUS[15] <- "1- Partially Treated"
+
+# Fix status text: ""2-Completely Treated" instead of "2- Completely Treated""
+lhprism_data$POP_STATUS[1] <- "2- Completely Treated"
+lhprism_data$POP_STATUS[4] <- "2- Completely Treated"
+lhprism_data$POP_STATUS[5] <- "2- Completely Treated"
+lhprism_data$POP_STATUS[6] <- "2- Completely Treated"
+
+# Build new data frames for each status category
+stat_0 <- filter(lhprism_data, POP_STATUS == "0- Untreated")
+stat_1 <- filter(lhprism_data, POP_STATUS == "1- Partially Treated")
+stat_2 <- filter(lhprism_data, POP_STATUS == "2- Completely Treated")
+stat_3 <- filter(lhprism_data, POP_STATUS == "3- No Plants 1 Yr")
+stat_4 <- filter(lhprism_data, POP_STATUS == "4- No Plants 2 Yrs")
+stat_5 <- filter(lhprism_data, POP_STATUS == "5- Eradicated")
+
+# Fixing the same incorrectly entered latitude value (Rye Nature Center)
+stat_1$LAT[37] <- 40.975937
+
+# Generate points colored by visit status
+m2 <- leaflet()
+
+m2 %>%
+  addTiles() %>%
+  addCircleMarkers(data = stat_0,
+                        lng=~stat_0$LONG,
+                        lat=~stat_0$LAT,
+                        popup=~paste0("Site Name: ",stat_0$PROPERTY_NAME,"<br>",
+                                 "Status: ",stat_0$POP_STATUS),
+                        color="grey",
+                        radius = 4,
+                        opacity = 0.7,
+                        fillColor = "white",
+                        group= "0- Untreated"
+  ) %>% 
+  addCircleMarkers(data = stat_1,
+                        lng=~stat_1$LONG,
+                        lat=~stat_1$LAT,
+                        popup=~paste0("Site Name: ",stat_1$PROPERTY_NAME,"<br>",
+                                      "Status: ",stat_1$POP_STATUS),
+                        color="orangered",
+                        radius = 4,
+                        opacity = 0.8,
+                        fillColor = "white",
+                        group= "1- Partially Treated"
+  ) %>% 
+  addCircleMarkers(data = stat_2,
+                        lng=~stat_2$LONG,
+                        lat=~stat_2$LAT,
+                        popup=~paste0("Site Name: ",stat_2$PROPERTY_NAME,"<br>",
+                                      "Status: ",stat_2$POP_STATUS),
+                        color="yellow",
+                        radius = 4,
+                        opacity = 0.6,
+                        fillColor = "white",
+                        group= "2- Completely Treated"
+  ) %>% 
+  addCircleMarkers(data = stat_3,
+                        lng=~stat_3$LONG,
+                        lat=~stat_3$LAT,
+                        popup=~paste0("Site Name: ",stat_3$PROPERTY_NAME,"<br>",
+                                      "Status: ",stat_3$POP_STATUS),
+                        color="yellowgreen",
+                        radius = 4,
+                        opacity = 0.8,
+                        fillColor = "white",
+                        group= "3- No Plants 1 Yr"
+  ) %>% 
+  addCircleMarkers(data = stat_4,
+                        lng=~stat_4$LONG,
+                        lat=~stat_4$LAT,
+                        popup=~paste0("Site Name: ",stat_4$PROPERTY_NAME,"<br>",
+                                      "Status: ",stat_4$POP_STATUS),
+                        color="green",
+                        radius = 4,
+                        opacity = 0.8,
+                        fillColor = "white",
+                        group= "4- No Plants 2 Yr"
+  ) %>% 
+  addCircleMarkers(data = stat_5,
+                        lng=~stat_5$LONG,
+                        lat=~stat_5$LAT,
+                        popup=~paste0("Site Name: ",stat_5$PROPERTY_NAME,"<br>",
+                                 "Status: ",stat_5$POP_STATUS),
+                        color="limegreen",
+                        radius = 4,
+                        opacity = 0.9,
+                        fillColor = "white",
+                        group= "5- Eradicated"
+  ) %>%
+  addLegend(
+    position = "topleft",
+    color=c("grey", "orangered", "yellow", "yellowgreen", "green", "limegreen"),
+    labels=c("Untreated","Partially Treated","Completely Treated","No plants for 1 year", "No plants for 2 years", "Eradicated"),
+    opacity = 0.9
+  )
+```
+
+Map 2: Locations of each treatment population, colored by status of treatment (e.g. "Untreated", "Partially Treated").
 
 ## Analysis of time / treatment effort required to eradication
 
--   This will be done on a subset of species
+- This will be done on a subset of species
 
-    -   How did we choose these species?
-        -   these species were chosen in part because LHPRISM believes eradication is possible and for some of these species like Giant Hogweed, specific traits that are hazardous to humans were also taken into account.
-    -   Brief overview of ecology of these particular species
+  - How did we choose these species?
+    - these species were chosen in part because LHPRISM believes eradication is possible and for some of these species like Giant Hogweed, specific traits that are hazardous to humans were also taken into account.
+  - Brief overview of ecology of these particular species
 
--   Description of the methods used in this analysis
+- Description of the methods used in this analysis
 
--   Description of the results of this analysis
+- Description of the results of this analysis
 
-    -   accelerated growth, previous exploratory analysis file - HEMA17 - Giant Hogweed - PUMO - Kudzu - CYSC4 - Scotch Broom - SAGL12 - Sticky Sage - CYSC4, SAGL12, LECU, PLEIO, POPE10, RULA, AREL8, HEMA17, ACAR10, VISI, COIN21, PUMO, ARIT, ILCR2, PHVI81, SYPA12, VIDI80, COKO2, PHVI81, SYPA12, AKQU, AREL8, SPJA, WISI, PHVI81, BRPA4, MISI, RAFIB, BRSY, HUJA, HEHE, FRAL4, WISTE - ALL EXTERMINATED
-    -   Brief overview of ecology of these particular species (add known methods of treatment, previous recommendation)
-        -   HEMA17 - Giant Hogweed (Heracleum mantegazzianum)
-            -   native to Eastern Europe/Western Asia, highly invasive in NE USA
-            -   thrives in rich, moist soil, prefers sunlight and tolerant of partial shade
-            -   found in river banks, streams, floodplains, roadsides + trafficked areas
-            -   biennial lifecycle, plants 2+ yrs old 10-15ft tall
-            -   1 plant can produce 20,000-50,000 seeds, spreading by water/wind and human activity
-            -   forms dense monocultures, increases erosion risk due to dying back in winter, leaves soil exposed along riverbanks
-            -   phototoxic sap - sever skin burns with sun exposure
-            -   treatment recommendation: chemical treatment in early spring, mechanical removal for small infestations
-        -   PUMO - Kudzu
-            -   native to East Asia, widespread in SE USA and migrating N
-            -   thrives on roadside, forest edges, warm and humid climates, prefers full sun, climbs to canopy
-            -   perennial vine, grows up to 1ft/day in optimal conditions
-            -   spreads vegetatively, rooting at nodes
-            -   forms dense monocultures, causes tree death by shading and structural stress
-            -   alters nutrient cycle by nitrogen fixation
-            -   treatment complex, requires multi-modal approach over multiple years
-        -   CYSC4 - Scotch Broom
-            -   Native to Europe, widespread invasiveness in PNW, California, and East Coast USA
-            -   prefers sandy soil and full sun, found on roadsides, logged forests, grassland
-            -   perennial shrub, lives up to 10-15 yrs
-            -   1 plant produces 1,000s of seeds
-            -   dense thickets, reduces habitat quality for native species, alters nutrient cycle by nitrogen fixation
-            -   seeds viable for 30+ yrs in soil makes eradication difficult
-            -   hand pulling for small infestations, chemical spray (glyphosate, triclopyr, basal bark treatment, stem cutting, foliar spray
-        -   SAGL12 - Sticky Sage
-            -   native to Europe and West Asia
-            -   prefers moist, well-drained soil, found in woodlands, shaded slopes, forest edges
-            -   perennial herb, blooms late summer
-            -   low ecological impact, coexists with native species
-            -   known treatment: handpulling for young pop
+  - accelerated growth, previous exploratory analysis file - HEMA17 - Giant Hogweed - PUMO - Kudzu - CYSC4 - Scotch Broom - SAGL12 - Sticky Sage - CYSC4, SAGL12, LECU, PLEIO, POPE10, RULA, AREL8, HEMA17, ACAR10, VISI, COIN21, PUMO, ARIT, ILCR2, PHVI81, SYPA12, VIDI80, COKO2, PHVI81, SYPA12, AKQU, AREL8, SPJA, WISI, PHVI81, BRPA4, MISI, RAFIB, BRSY, HUJA, HEHE, FRAL4, WISTE - ALL EXTERMINATED
+  - Brief overview of ecology of these particular species (add known methods of treatment, previous recommendation)
+    - HEMA17 - Giant Hogweed (Heracleum mantegazzianum)
+      - native to Eastern Europe/Western Asia, highly invasive in NE USA
+      - thrives in rich, moist soil, prefers sunlight and tolerant of partial shade
+      - found in river banks, streams, floodplains, roadsides + trafficked areas
+      - biennial lifecycle, plants 2+ yrs old 10-15ft tall
+      - 1 plant can produce 20,000-50,000 seeds, spreading by water/wind and human activity
+      - forms dense monocultures, increases erosion risk due to dying back in winter, leaves soil exposed along riverbanks
+      - phototoxic sap - sever skin burns with sun exposure
+      - treatment recommendation: chemical treatment in early spring, mechanical removal for small infestations
+    - PUMO - Kudzu
+      - native to East Asia, widespread in SE USA and migrating N
+      - thrives on roadside, forest edges, warm and humid climates, prefers full sun, climbs to canopy
+      - perennial vine, grows up to 1ft/day in optimal conditions
+      - spreads vegetatively, rooting at nodes
+      - forms dense monocultures, causes tree death by shading and structural stress
+      - alters nutrient cycle by nitrogen fixation
+      - treatment complex, requires multi-modal approach over multiple years
+    - CYSC4 - Scotch Broom
+      - Native to Europe, widespread invasiveness in PNW, California, and East Coast USA
+      - prefers sandy soil and full sun, found on roadsides, logged forests, grassland
+      - perennial shrub, lives up to 10-15 yrs
+      - 1 plant produces 1,000s of seeds
+      - dense thickets, reduces habitat quality for native species, alters nutrient cycle by nitrogen fixation
+      - seeds viable for 30+ yrs in soil makes eradication difficult
+      - hand pulling for small infestations, chemical spray (glyphosate, triclopyr, basal bark treatment, stem cutting, foliar spray
+    - SAGL12 - Sticky Sage
+      - native to Europe and West Asia
+      - prefers moist, well-drained soil, found in woodlands, shaded slopes, forest edges
+      - perennial herb, blooms late summer
+      - low ecological impact, coexists with native species
+      - known treatment: handpulling for young pop
 
--   Description of the methods used in this analysis
+- Description of the methods used in this analysis
 
-    -   change in plant count over consecutive visits
+  - change in plant count over consecutive visits
 
-    -   visit_date \* visit_status_num
+  - visit_date \* visit_status_num
 
-        ```{r}
-        ##created a table to see how long does it take each species to move from one status to the next, sorting by site
-        status_timing <- lhprism_data %>%
-          group_by(species_code, site, visit_status_num) %>%
-          summarise(first_date = min(visit_date), .groups = "drop") %>%
-          arrange(species_code, site, visit_status_num)
+    ```{r}
+    ##created a table to see how long does it take each species to move from one status to the next, sorting by site
+    status_timing <- lhprism_data %>%
+      group_by(species_code, site, visit_status_num) %>%
+      summarise(first_date = min(visit_date), .groups = "drop") %>%
+      arrange(species_code, site, visit_status_num)
 
-        ##this does not account for status relapses (yet) as it only searches for the earliest date that each visit_status_num was recorded
-        ```
+    ##this does not account for status relapses (yet) as it only searches for the earliest date that each visit_status_num was recorded
+    ```
 
-    -   maybe see if there are any patterns when sorting by herbicide/treatment method?
+  - maybe see if there are any patterns when sorting by herbicide/treatment method?
 
-    -   how many times did they need to visit a plot before eradication: look at total number of visits, and population numbers
+  - how many times did they need to visit a plot before eradication: look at total number of visits, and population numbers
 
-        ```{r}
-        library(dplyr)
-        library(ggplot2)
+    ```{r}
+    library(dplyr)
+    library(ggplot2)
 
-        ##HEMA17 population by site and visit_status_num
-        hogweed_pop <- lhprism_data %>%
-          filter(species_code == "HEMA17") %>%
-          arrange(site, desc(plant_count)) %>%
-          select(site, visit_date, visit_status_num, plant_count, gross_treat_sqft)
+    ##HEMA17 population by site and visit_status_num
+    hogweed_pop <- lhprism_data %>%
+      filter(species_code == "HEMA17") %>%
+      arrange(site, desc(plant_count)) %>%
+      select(site, visit_date, visit_status_num, plant_count, gross_treat_sqft)
 
-        #plotting visit_status_num across time
-        ggplot(data = hogweed_pop, aes(x = visit_date, y = visit_status_num, color = site)) +
-          geom_line() +
-          theme_minimal() +
-          facet_wrap(~site) +
-          theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5)) +
-          theme(axis.text.y = element_text(size = 5)) +
-          scale_y_reverse()
-        ```
+    #plotting visit_status_num across time
+    ggplot(data = hogweed_pop, aes(x = visit_date, y = visit_status_num, color = site)) +
+      geom_line() +
+      theme_minimal() +
+      facet_wrap(~site) +
+      theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5)) +
+      theme(axis.text.y = element_text(size = 5)) +
+      scale_y_reverse()
+    ```
 
-        ```{r}
-        ##PUMO population by site and visit_status_num
-        jknotweed_pop <- lhprism_data %>%
-          filter(species_code == "PUMO") %>%
-          arrange(site, desc(plant_count)) %>%
-          select(site, visit_date, visit_status_num, plant_count, gross_treat_sqft)
+    ```{r}
+    ##PUMO population by site and visit_status_num
+    jknotweed_pop <- lhprism_data %>%
+      filter(species_code == "PUMO") %>%
+      arrange(site, desc(plant_count)) %>%
+      select(site, visit_date, visit_status_num, plant_count, gross_treat_sqft)
 
-        #PUMO visit_status_num over time
-        ggplot(data = jknotweed_pop, aes(x = visit_date, y = visit_status_num, color = site)) +
-          geom_line() +
-          theme_minimal() +
-          facet_wrap(~site) +
-          theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5)) +
-          theme(axis.text.y = element_text(size = 5)) +
-          scale_y_reverse()
+    #PUMO visit_status_num over time
+    ggplot(data = jknotweed_pop, aes(x = visit_date, y = visit_status_num, color = site)) +
+      geom_line() +
+      theme_minimal() +
+      facet_wrap(~site) +
+      theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5)) +
+      theme(axis.text.y = element_text(size = 5)) +
+      scale_y_reverse()
 
-        ##plant_count at each status level
-        ##days/visits until new status, also days until relapse?
-          
-          select(site, visit_date, visit_status_num, plant_count)
+    ##plant_count at each status level
+    ##days/visits until new status, also days until relapse?
+      
+      select(site, visit_date, visit_status_num, plant_count)
 
-        ```
+    ```
 
-        ```{r}
-        ##KUDO population by site and visit_status_num
-        jknotweed_pop <- lhprism_data %>%
-          filter(species_code == "KUDO") %>%
-          arrange(site, desc(plant_count)) %>%
-          select(site, visit_date, visit_status_num, plant_count)
-        ```
+    ```{r}
+    ##KUDO population by site and visit_status_num
+    jknotweed_pop <- lhprism_data %>%
+      filter(species_code == "KUDO") %>%
+      arrange(site, desc(plant_count)) %>%
+      select(site, visit_date, visit_status_num, plant_count)
+    ```
 
-        ```{r}
-        ##CYSC4 population by site and visit_status_num
-        scotchbroom_pop <- lhprism_data %>%
-          filter(species_code == "CYSC4") %>%
-          arrange(site, desc(plant_count)) %>%
-          select(site, visit_date, visit_status_num, plant_count)
-        ```
+    ```{r}
+    ##CYSC4 population by site and visit_status_num
+    scotchbroom_pop <- lhprism_data %>%
+      filter(species_code == "CYSC4") %>%
+      arrange(site, desc(plant_count)) %>%
+      select(site, visit_date, visit_status_num, plant_count)
+    ```
 
-        ```{r}
-        ##SAGL12 population by site and visit_status_num
-        stickysage_pop <- lhprism_data %>%
-          filter(species_code == "SAGL12") %>%
-          arrange(site, desc(plant_count)) %>%
-          select(site, visit_date, visit_status_num, plant_count)
+    ```{r}
+    ##SAGL12 population by site and visit_status_num
+    stickysage_pop <- lhprism_data %>%
+      filter(species_code == "SAGL12") %>%
+      arrange(site, desc(plant_count)) %>%
+      select(site, visit_date, visit_status_num, plant_count)
 
-        #PUMO visit_status_num over time
-        ggplot(data = stickysage_pop, aes(x = visit_date, y = visit_status_num, color = site)) +
-          geom_line() +
-          theme_minimal() +
-          facet_wrap(~site) +
-          theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5)) +
-          theme(axis.text.y = element_text(size = 5)) +
-          scale_y_reverse()
-        ```
+    #PUMO visit_status_num over time
+    ggplot(data = stickysage_pop, aes(x = visit_date, y = visit_status_num, color = site)) +
+      geom_line() +
+      theme_minimal() +
+      facet_wrap(~site) +
+      theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5)) +
+      theme(axis.text.y = element_text(size = 5)) +
+      scale_y_reverse()
+    ```
 
--   Description of the results of this analysis
-        ```
--   How Many site codes have been Eradicated (5)
+- Description of the results of this analysis \`\`\`
+
+- How Many site codes have been Eradicated (5)
 
 ```{r}
 lhprism_treated <-
@@ -326,7 +465,7 @@ lhprism_treated <-
 
 ```
 
--   Count of visits 0-5 status
+- Count of visits 0-5 status
 
 ```{r}
 Visit_num_vs_site_code <-
@@ -337,27 +476,27 @@ Visit_num_vs_site_code <-
   pivot_wider(names_from = `Site Code`, values_from = n)
 lhprism_treated
 ```
--  Description of the results of this analysis
 
-    -   HEMA17
+- Description of the results of this analysis
 
-        ```{r}
-        ```
+  - HEMA17
 
-    -   PUMO
+    ```{r}
+    ```
 
-        ```{r}
-        ```
+  - PUMO
 
-    -   CYSC4
+    ```{r}
+    ```
 
-        ```{r}
-        ```
+  - CYSC4
 
-    -   SAGL12
+    ```{r}
+    ```
 
-        ```{r}
-        ```
+  - SAGL12
 
+    ```{r}
+    ```
 
 ## Conclusions and recommendations

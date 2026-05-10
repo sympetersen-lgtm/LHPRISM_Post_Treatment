@@ -1,6 +1,6 @@
-# Leaflet testing
+# Leaflet maps for LHPRISM data
 # Simon Petersen
-# 26 April 2026
+# 10 May 2026
 
 install.packages(c("leaflet", "readr", "readxl", "tidyverse"))
 library(leaflet)
@@ -76,44 +76,54 @@ m2 %>%
                         lat=~stat_0$LAT,
                         popup=~paste0("Site Name: ",stat_0$PROPERTY_NAME,"<br>",
                                  "Status: ",stat_0$POP_STATUS),
-                        color="red",
-                        radius = 2,
+                        color="grey",
+                        radius = 4,
+                        opacity = 0.7,
+                        fillColor = "white",
                         group= "0- Untreated"
   ) %>% 
   addCircleMarkers(data = stat_1,
-                         lng=~stat_1$LONG,
-                         lat=~stat_1$LAT,
-                         popup=~paste0("Site Name: ",stat_1$PROPERTY_NAME,"<br>",
-                                       "Status: ",stat_1$POP_STATUS),
-                         color="orange",
-                         radius = 2,
-                         group= "1- Partially Treated"
+                        lng=~stat_1$LONG,
+                        lat=~stat_1$LAT,
+                        popup=~paste0("Site Name: ",stat_1$PROPERTY_NAME,"<br>",
+                                      "Status: ",stat_1$POP_STATUS),
+                        color="orangered",
+                        radius = 4,
+                        opacity = 0.8,
+                        fillColor = "white",
+                        group= "1- Partially Treated"
   ) %>% 
   addCircleMarkers(data = stat_2,
-                         lng=~stat_2$LONG,
-                         lat=~stat_2$LAT,
-                         popup=~paste0("Site Name: ",stat_2$PROPERTY_NAME,"<br>",
-                                       "Status: ",stat_2$POP_STATUS),
-                         color="yellow",
-                         radius = 2,
-                         group= "2- Completely Treated"
+                        lng=~stat_2$LONG,
+                        lat=~stat_2$LAT,
+                        popup=~paste0("Site Name: ",stat_2$PROPERTY_NAME,"<br>",
+                                      "Status: ",stat_2$POP_STATUS),
+                        color="yellow",
+                        radius = 4,
+                        opacity = 0.6,
+                        fillColor = "white",
+                        group= "2- Completely Treated"
   ) %>% 
   addCircleMarkers(data = stat_3,
-                         lng=~stat_3$LONG,
-                         lat=~stat_3$LAT,
-                         popup=~paste0("Site Name: ",stat_3$PROPERTY_NAME,"<br>",
-                                       "Status: ",stat_3$POP_STATUS),
-                         color="green",
-                         radius = 2,
-                         group= "3- No Plants 1 Yr"
+                        lng=~stat_3$LONG,
+                        lat=~stat_3$LAT,
+                        popup=~paste0("Site Name: ",stat_3$PROPERTY_NAME,"<br>",
+                                      "Status: ",stat_3$POP_STATUS),
+                        color="yellowgreen",
+                        radius = 4,
+                        opacity = 0.8,
+                        fillColor = "white",
+                        group= "3- No Plants 1 Yr"
   ) %>% 
   addCircleMarkers(data = stat_4,
                         lng=~stat_4$LONG,
                         lat=~stat_4$LAT,
                         popup=~paste0("Site Name: ",stat_4$PROPERTY_NAME,"<br>",
-                                 "Status: ",stat_4$POP_STATUS),
-                        color="blue",
-                        radius = 2,
+                                      "Status: ",stat_4$POP_STATUS),
+                        color="green",
+                        radius = 4,
+                        opacity = 0.8,
+                        fillColor = "white",
                         group= "4- No Plants 2 Yr"
   ) %>% 
   addCircleMarkers(data = stat_5,
@@ -121,7 +131,15 @@ m2 %>%
                         lat=~stat_5$LAT,
                         popup=~paste0("Site Name: ",stat_5$PROPERTY_NAME,"<br>",
                                  "Status: ",stat_5$POP_STATUS),
-                        color="purple",
-                        radius = 2,
+                        color="limegreen",
+                        radius = 4,
+                        opacity = 0.9,
+                        fillColor = "white",
                         group= "5- Eradicated"
+  ) %>%
+  addLegend(
+    position = "topleft",
+    color=c("grey", "orangered", "yellow", "yellowgreen", "green", "limegreen"),
+    labels=c("Untreated","Partially Treated","Completely Treated","No plants for 1 year", "No plants for 2 years", "Eradicated"),
+    opacity = 0.9
   )
