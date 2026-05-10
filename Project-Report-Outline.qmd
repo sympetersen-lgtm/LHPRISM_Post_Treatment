@@ -164,6 +164,8 @@ USDA Natural Resources Conservation Service. (2024). *PLANTS database*. <https:/
 - Leaflet maps of populations
 
 ```{r}
+# R script for Map 1
+
 library(leaflet)
 library(readxl)  # for Excel files
 library(tidyverse)
@@ -207,6 +209,8 @@ m1 %>%
 Map 1: Locations of each treatment population. If viewing the interactive map, clicking on each point will bring up its associated property name (e.g. Rye Nature Center).
 
 ```{r}
+# R script for Map 2
+
 # Fix status text: ""1-Partially Treated" instead of "1- Partially Treated""
 lhprism_data$POP_STATUS[3] <- "1- Partially Treated"
 lhprism_data$POP_STATUS[7] <- "1- Partially Treated"
@@ -309,7 +313,7 @@ m2 %>%
   )
 ```
 
-Map 2: Locations of each treatment population, colored by status of treatment (e.g. "Untreated", "Partially Treated").
+Map 2: Locations of each treatment population, colored by status of treatment (e.g. "Untreated", "Partially Treated"). If viewing the interactive map, clicking on each point will bring up its associated property name and visit status.
 
 ## Analysis of time / treatment effort required to eradication
 
