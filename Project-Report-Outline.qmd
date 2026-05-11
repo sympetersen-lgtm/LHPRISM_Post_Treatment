@@ -103,19 +103,33 @@ Understanding this background — the regulatory status, the tier level, and the
 
 ## Region of study - Tanaka
 
-The study area for this project encompasses the Lower Hudson region, as delineated by the Lower Hudson Partnership for Regional Invasive Species Management (LH PRISM). Established as one of eight regional invasive species management groups across New York State, LH PRISM coordinates collaborative efforts among government agencies, conservation organizations, and landowners to monitor and manage invasive species at a regional scale [@lhprism2024]. The region includes Westchester, Dutchess, Putnam, Rockland, Orange, and Ulster counties, extending southward into the five boroughs of New York City [@lhprism2024; @nysdec2024].
+The study area for this project encompasses the Lower Hudson region, as delineated by the Lower Hudson Partnership for Regional Invasive Species Management (LH PRISM). 
+Established as one of eight regional invasive species management groups across New York State, LH PRISM coordinates collaborative efforts among government agencies, conservation organizations, and landowners to monitor and manage invasive species at a regional scale [@lhprism2024]. The region includes Westchester, Dutchess, Putnam, Rockland, Orange, and Ulster counties, extending southward into the five boroughs of New York City [@lhprism2024; @nysdec2024].
 
-Geographically, the region is anchored by the Hudson River estuary, a highly dynamic tidal system in which freshwater inputs from inland watersheds interact with saltwater intrusion from the Atlantic Ocean. This estuarine gradient sustains a broad array of habitat types, including tidal wetlands, riparian corridors, freshwater marshes, and open aquatic environments, collectively rendering the Lower Hudson one of the most ecologically productive systems in the northeastern United States [@dec_aquatic2024]. The region also functions as a critical landscape transition zone, bridging the heavily urbanized New York City metropolitan area with the more rural and forested landscapes of the mid-Hudson Valley. This gradient of land use intensities is particularly significant in the context of biological invasions, as anthropogenic disturbance is well-documented as a primary driver of invasive species establishment and spread [@cornell2024; @nysdec2024].
+Geographically, the region is anchored by the Hudson River estuary, a highly dynamic tidal system in which freshwater inputs from inland watersheds interact with saltwater intrusion from the Atlantic Ocean. 
+This estuarine gradient sustains a broad array of habitat types, including tidal wetlands, riparian corridors, freshwater marshes, and open aquatic environments, collectively rendering the Lower Hudson one of the most ecologically productive systems in the northeastern United States [@dec_aquatic2024]. 
+The region also functions as a critical landscape transition zone, bridging the heavily urbanized New York City metropolitan area with the more rural and forested landscapes of the mid-Hudson Valley. 
+This gradient of land use intensities is particularly significant in the context of biological invasions, as anthropogenic disturbance is well-documented as a primary driver of invasive species establishment and spread [@cornell2024; @nysdec2024].
 
 ### Climate
 
-The Lower Hudson region is characterized by a humid temperate climate with four well-defined seasons. Summers are warm and humid, winters are cold with periodic snowfall, and precipitation is distributed relatively uniformly throughout the year, averaging approximately 40 to 50 inches annually [@noaa2024]. These climatic conditions support a wide diversity of native vegetation communities while simultaneously creating favorable thermal and moisture regimes for the establishment of non-native invasive species [@kunkel2013; @noaa2024]. Notably, climate projections for the northeastern United States indicate continued warming trends and increasing precipitation variability, conditions that are expected to further facilitate the range expansion of invasive species into previously unsuitable habitats [@kunkel2013].
+The Lower Hudson region is characterized by a humid temperate climate with four well-defined seasons. 
+Summers are warm and humid, winters are cold with periodic snowfall, and precipitation is distributed relatively uniformly throughout the year, averaging approximately 40 to 50 inches annually [@noaa2024]. 
+These climatic conditions support a wide diversity of native vegetation communities while simultaneously creating favorable thermal and moisture regimes for the establishment of non-native invasive species [@kunkel2013; @noaa2024]. Notably, climate projections for the northeastern United States indicate continued warming trends and increasing precipitation variability, conditions that are expected to further facilitate the range expansion of invasive species into previously unsuitable habitats [@kunkel2013].
 
 ### Ecology
 
-The Lower Hudson region falls within the Eastern Temperate Forest biome and supports a mosaic of ecological communities, including mixed deciduous forests, freshwater wetlands, floodplain systems, and estuarine habitats [@nyheritage2021]. Dominant forest canopy species include oak (*Quercus* spp.), maple (*Acer* spp.), and hickory (*Carya* spp.), which provide structural complexity and support high levels of faunal biodiversity across the landscape [@nyheritage2021; @cornell2024]. The region's network of river systems and wetlands further contributes to its ecological significance, serving as corridors for both native wildlife and, unfortunately, the dispersal of invasive plant species [@dec_aquatic2024].
+The Lower Hudson region falls within the Eastern Temperate Forest biome and supports a mosaic of ecological communities, including mixed deciduous forests, freshwater wetlands, floodplain systems, and estuarine habitats [@nyheritage2021].
+Dominant forest canopy species include oak (*Quercus* spp.), maple (*Acer* spp.), and hickory (*Carya* spp.), which provide structural complexity and support high levels of faunal biodiversity across the landscape [@nyheritage2021; @cornell2024]. 
+The region's network of river systems and wetlands further contributes to its ecological significance, serving as corridors for both native wildlife and, unfortunately, the dispersal of invasive plant species [@dec_aquatic2024].
 
-The Lower Hudson region presents an ideal study area for analyzing invasive species distribution patterns given its unique combination of ecological diversity, landscape heterogeneity, and anthropogenic pressure. The juxtaposition of urban and natural land cover types creates conditions highly conducive to invasive species introduction, as disturbance-adapted non-native plants readily exploit habitat edges, degraded areas, and human-modified landscapes [@lhprism2024; @nysdec2024]. The dataset employed in this study, compiled through field surveys conducted by the Invasives Strike Force under the coordination of LH PRISM, provides spatially explicit records of invasive plant populations across a broad range of property types within this region. Species identifications in the dataset are standardized using codes from the USDA PLANTS Database, ensuring taxonomic consistency across observation records [@usda2024]. Together, the ecological characteristics of the Lower Hudson region and the availability of a robust regional dataset make this an appropriate and well-suited geographic context for the analyses undertaken in this project.
+The Lower Hudson region presents an ideal study area for analyzing invasive species distribution patterns given its unique combination of ecological diversity, landscape heterogeneity, and anthropogenic pressure.
+The juxtaposition of urban and natural land cover types creates conditions highly conducive to invasive species introduction, as disturbance-adapted non-native plants readily exploit habitat edges, degraded areas, and human-modified landscapes [@lhprism2024; @nysdec2024]. 
+The dataset employed in this study, compiled through field surveys conducted by the Invasives Strike Force under the coordination of LH PRISM, provides spatially explicit records of invasive plant populations across a broad range of property types within this region. 
+Species identifications in the dataset are standardized using codes from the USDA PLANTS Database, ensuring taxonomic consistency across observation records [@usda2024]. 
+Together, the ecological characteristics of the Lower Hudson region and the availability of a robust regional dataset make this an appropriate and well-suited geographic context for the analyses undertaken in this project.
+
+## A map showing the representation of the Region of the Study is shown in the Spatial Analysis Section
 
 **References**
 
@@ -317,73 +331,12 @@ Map 2: Locations of each treatment population, colored by status of treatment (e
 
 ## Analysis of time / treatment effort required to eradication
 
-<<<<<<< main
--   This will be done on a subset of species
-
-    -   How did we choose these species?
-        -   these species were chosen in part because LHPRISM believes eradication is possible and for some of these species like Giant Hogweed, specific traits that are hazardous to humans were also taken into account.
-    -   Brief overview of ecology of these particular species
-
--   Description of the methods used in this analysis
-
--   Description of the results of this analysis
-
-    -   accelerated growth, previous exploratory analysis file - HEMA17 - Giant Hogweed - PUMO - Kudzu - CYSC4 - Scotch Broom - SAGL12 - Sticky Sage - CYSC4, SAGL12, LECU, PLEIO, POPE10, RULA, AREL8, HEMA17, ACAR10, VISI, COIN21, PUMO, ARIT, ILCR2, PHVI81, SYPA12, VIDI80, COKO2, PHVI81, SYPA12, AKQU, AREL8, SPJA, WISI, PHVI81, BRPA4, MISI, RAFIB, BRSY, HUJA, HEHE, FRAL4, WISTE - ALL EXTERMINATED
-    -   Brief overview of ecology of these particular species (add known methods of treatment, previous recommendation)
-        -   HEMA17 - Giant Hogweed (Heracleum mantegazzianum)
-            -   native to Eastern Europe/Western Asia, highly invasive in NE USA
-            -   thrives in rich, moist soil, prefers sunlight and tolerant of partial shade
-            -   found in river banks, streams, floodplains, roadsides + trafficked areas
-            -   biennial lifecycle, plants 2+ yrs old 10-15ft tall
-            -   1 plant can produce 20,000-50,000 seeds, spreading by water/wind and human activity
-            -   forms dense monocultures, increases erosion risk due to dying back in winter, leaves soil exposed along riverbanks
-            -   phototoxic sap - sever skin burns with sun exposure
-            -   treatment recommendation: chemical treatment in early spring, mechanical removal for small infestations
-        -   PUMO - Kudzu
-            -   native to East Asia, widespread in SE USA and migrating N
-            -   thrives on roadside, forest edges, warm and humid climates, prefers full sun, climbs to canopy
-            -   perennial vine, grows up to 1ft/day in optimal conditions
-            -   spreads vegetatively, rooting at nodes
-            -   forms dense monocultures, causes tree death by shading and structural stress
-            -   alters nutrient cycle by nitrogen fixation
-            -   treatment complex, requires multi-modal approach over multiple years
-        -   CYSC4 - Scotch Broom
-            -   Native to Europe, widespread invasiveness in PNW, California, and East Coast USA
-            -   prefers sandy soil and full sun, found on roadsides, logged forests, grassland
-            -   perennial shrub, lives up to 10-15 yrs
-            -   1 plant produces 1,000s of seeds
-            -   dense thickets, reduces habitat quality for native species, alters nutrient cycle by nitrogen fixation
-            -   seeds viable for 30+ yrs in soil makes eradication difficult
-            -   hand pulling for small infestations, chemical spray (glyphosate, triclopyr, basal bark treatment, stem cutting, foliar spray
-        -   SAGL12 - Sticky Sage
-            -   native to Europe and West Asia
-            -   prefers moist, well-drained soil, found in woodlands, shaded slopes, forest edges
-            -   perennial herb, blooms late summer
-            -   low ecological impact, coexists with native species
-            -   known treatment: handpulling for young pop
-
--   Description of the methods used in this analysis
-
-    -   change in plant count over consecutive visits
-
-        ```{r}
-        ##created a table to see how long does it take each species to move from one status to the next, sorting by site
-        status_timing <- lhprism_data %>%
-          group_by(species_code, site, visit_status_num) %>%
-          summarise(first_date = min(visit_date), .groups = "drop") %>%
-          arrange(species_code, site, visit_status_num)
-
-        ##this does not account for status relapses (yet) as it only searches for the earliest date that each visit_status_num was recorded
-        ```
-
-    -   maybe see if there are any patterns when sorting by herbicide/treatment method?
-
     -   how many times did they need to visit a plot before eradication: look at total number of visits, and population numbers
 
 -   Description of the results of this analysis
 
 -   How Many site codes have been Eradicated (5)
-=======
+
 - This will be done on a subset of species
 
   - How did we choose these species?
@@ -527,7 +480,6 @@ Map 2: Locations of each treatment population, colored by status of treatment (e
 - Description of the results of this analysis \`\`\`
 
 - How Many site codes have been Eradicated (5)
->>>>>>> main
 
 ```{r}
 lhprism_treated <-
@@ -548,10 +500,6 @@ Visit_num_vs_site_code <-
   pivot_wider(names_from = `Site Code`, values_from = n)
 lhprism_treated
 ```
-<<<<<<< main
-
--   Description of the results of this analysis
-
     -   visit_status_num \* visit_date, examining how long it takes to progress to the next status for 4 target species
 
         -   HEMA17
@@ -632,7 +580,6 @@ lhprism_treated
               theme(axis.text.y = element_text(size = 5)) +
               scale_y_reverse()
             ```
-=======
 
 - Description of the results of this analysis
 
@@ -655,6 +602,6 @@ lhprism_treated
 
     ```{r}
     ```
->>>>>>> main
 
 ## Conclusions and recommendations
+
