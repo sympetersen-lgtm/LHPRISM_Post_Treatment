@@ -317,6 +317,73 @@ Map 2: Locations of each treatment population, colored by status of treatment (e
 
 ## Analysis of time / treatment effort required to eradication
 
+<<<<<<< main
+-   This will be done on a subset of species
+
+    -   How did we choose these species?
+        -   these species were chosen in part because LHPRISM believes eradication is possible and for some of these species like Giant Hogweed, specific traits that are hazardous to humans were also taken into account.
+    -   Brief overview of ecology of these particular species
+
+-   Description of the methods used in this analysis
+
+-   Description of the results of this analysis
+
+    -   accelerated growth, previous exploratory analysis file - HEMA17 - Giant Hogweed - PUMO - Kudzu - CYSC4 - Scotch Broom - SAGL12 - Sticky Sage - CYSC4, SAGL12, LECU, PLEIO, POPE10, RULA, AREL8, HEMA17, ACAR10, VISI, COIN21, PUMO, ARIT, ILCR2, PHVI81, SYPA12, VIDI80, COKO2, PHVI81, SYPA12, AKQU, AREL8, SPJA, WISI, PHVI81, BRPA4, MISI, RAFIB, BRSY, HUJA, HEHE, FRAL4, WISTE - ALL EXTERMINATED
+    -   Brief overview of ecology of these particular species (add known methods of treatment, previous recommendation)
+        -   HEMA17 - Giant Hogweed (Heracleum mantegazzianum)
+            -   native to Eastern Europe/Western Asia, highly invasive in NE USA
+            -   thrives in rich, moist soil, prefers sunlight and tolerant of partial shade
+            -   found in river banks, streams, floodplains, roadsides + trafficked areas
+            -   biennial lifecycle, plants 2+ yrs old 10-15ft tall
+            -   1 plant can produce 20,000-50,000 seeds, spreading by water/wind and human activity
+            -   forms dense monocultures, increases erosion risk due to dying back in winter, leaves soil exposed along riverbanks
+            -   phototoxic sap - sever skin burns with sun exposure
+            -   treatment recommendation: chemical treatment in early spring, mechanical removal for small infestations
+        -   PUMO - Kudzu
+            -   native to East Asia, widespread in SE USA and migrating N
+            -   thrives on roadside, forest edges, warm and humid climates, prefers full sun, climbs to canopy
+            -   perennial vine, grows up to 1ft/day in optimal conditions
+            -   spreads vegetatively, rooting at nodes
+            -   forms dense monocultures, causes tree death by shading and structural stress
+            -   alters nutrient cycle by nitrogen fixation
+            -   treatment complex, requires multi-modal approach over multiple years
+        -   CYSC4 - Scotch Broom
+            -   Native to Europe, widespread invasiveness in PNW, California, and East Coast USA
+            -   prefers sandy soil and full sun, found on roadsides, logged forests, grassland
+            -   perennial shrub, lives up to 10-15 yrs
+            -   1 plant produces 1,000s of seeds
+            -   dense thickets, reduces habitat quality for native species, alters nutrient cycle by nitrogen fixation
+            -   seeds viable for 30+ yrs in soil makes eradication difficult
+            -   hand pulling for small infestations, chemical spray (glyphosate, triclopyr, basal bark treatment, stem cutting, foliar spray
+        -   SAGL12 - Sticky Sage
+            -   native to Europe and West Asia
+            -   prefers moist, well-drained soil, found in woodlands, shaded slopes, forest edges
+            -   perennial herb, blooms late summer
+            -   low ecological impact, coexists with native species
+            -   known treatment: handpulling for young pop
+
+-   Description of the methods used in this analysis
+
+    -   change in plant count over consecutive visits
+
+        ```{r}
+        ##created a table to see how long does it take each species to move from one status to the next, sorting by site
+        status_timing <- lhprism_data %>%
+          group_by(species_code, site, visit_status_num) %>%
+          summarise(first_date = min(visit_date), .groups = "drop") %>%
+          arrange(species_code, site, visit_status_num)
+
+        ##this does not account for status relapses (yet) as it only searches for the earliest date that each visit_status_num was recorded
+        ```
+
+    -   maybe see if there are any patterns when sorting by herbicide/treatment method?
+
+    -   how many times did they need to visit a plot before eradication: look at total number of visits, and population numbers
+
+-   Description of the results of this analysis
+
+-   How Many site codes have been Eradicated (5)
+=======
 - This will be done on a subset of species
 
   - How did we choose these species?
@@ -460,6 +527,7 @@ Map 2: Locations of each treatment population, colored by status of treatment (e
 - Description of the results of this analysis \`\`\`
 
 - How Many site codes have been Eradicated (5)
+>>>>>>> main
 
 ```{r}
 lhprism_treated <-
@@ -480,6 +548,91 @@ Visit_num_vs_site_code <-
   pivot_wider(names_from = `Site Code`, values_from = n)
 lhprism_treated
 ```
+<<<<<<< main
+
+-   Description of the results of this analysis
+
+    -   visit_status_num \* visit_date, examining how long it takes to progress to the next status for 4 target species
+
+        -   HEMA17
+
+            ```{r}
+            ##HEMA17 population by site and visit_status_num
+            hogweed_status <- lhprism_data %>%
+              filter(species_code == "HEMA17") %>%
+              arrange(site, desc(plant_count)) %>%
+              select(site, visit_date, visit_status_num, plant_count, gross_treat_sqft)
+
+            #plotting visit_status_num across time
+            ggplot(data = hogweed_status, aes(x = visit_date, y = visit_status_num, color = site)) +
+              geom_line() +
+              theme_minimal() +
+              facet_wrap(~site) +
+              theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5)) +
+              theme(axis.text.y = element_text(size = 5)) +
+              scale_y_reverse()
+
+            ##plant_count at each status level?
+            ##days/visits until new status, also days until relapse?
+            ```
+
+        -   PUMO
+
+            ```{r}
+            ##PUMO population by site and visit_status_num
+            jknotweed_status <- lhprism_data %>%
+              filter(species_code == "PUMO") %>%
+              arrange(site, desc(plant_count)) %>%
+              select(site, visit_date, visit_status_num, plant_count, gross_treat_sqft)
+
+            #PUMO visit_status_num over time
+            ggplot(data = jknotweed_status, aes(x = visit_date, y = visit_status_num, color = site)) +
+              geom_line() +
+              theme_minimal() +
+              facet_wrap(~site) +
+              theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5)) +
+              theme(axis.text.y = element_text(size = 5)) +
+              scale_y_reverse()
+            ```
+
+        -   CYSC4
+
+            ```{r}
+            ##CYSC4 population by site and visit_status_num
+            scotchbroom_status <- lhprism_data %>%
+              filter(species_code == "CYSC4") %>%
+              arrange(site, desc(plant_count)) %>%
+              select(site, visit_date, visit_status_num, plant_count)
+
+            #CYSC4 visit_status_num over time
+            ggplot(data = scotchbroom_status, aes(x = visit_date, y = visit_status_num, color = site)) +
+              geom_line() +
+              theme_minimal() +
+              facet_wrap(~site) +
+              theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5)) +
+              theme(axis.text.y = element_text(size = 5)) +
+              scale_y_reverse()
+            ```
+
+        -   SAGL12
+
+            ```{r}
+            ##SAGL12 population by site and visit_status_num
+            stickysage_status <- lhprism_data %>%
+              filter(species_code == "SAGL12") %>%
+              arrange(site, desc(plant_count)) %>%
+              select(site, visit_date, visit_status_num, plant_count)
+
+            #PUMO visit_status_num over time
+            ggplot(data = stickysage_status, aes(x = visit_date, y = visit_status_num, color = site)) +
+              geom_line() +
+              theme_minimal() +
+              facet_wrap(~site) +
+              theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5)) +
+              theme(axis.text.y = element_text(size = 5)) +
+              scale_y_reverse()
+            ```
+=======
 
 - Description of the results of this analysis
 
@@ -502,5 +655,6 @@ lhprism_treated
 
     ```{r}
     ```
+>>>>>>> main
 
 ## Conclusions and recommendations
