@@ -236,7 +236,18 @@ The second map uses a color gradient to classify points based on how far along t
 excel_file <- paste0(proj_path, "/data/Pace Data Project Invasives Strike Force Records.xlsx")
 
 # Read in sheet 2 of the Excel spreadsheet (populations)
-lhprism_pops <- read_excel(path = excel_file, sheet = 2)
+lhprism_pops <- read_excel(path = proj_path, sheet = 2)
+
+Pace_Data_Project_Invasives_Strike_Force_Records <- read_excel("data/Pace Data Project Invasives Strike Force Records.xlsx", 
+                                                               sheet = "Populations", col_types = c("text", 
+                                                                                                    "text", "text", "text", "text", "text", 
+                                                                                                    "text", "numeric", "text", "text", 
+                                                                                                    "text", "text", "text", "text", "text", 
+                                                                                                    "text", "text", "text", "text", "text", 
+                                                                                                    "text", "text"))
+
+lhprism_pops$LAT <- as.numeric(trimws(Pace_Data_Project_Invasives_Strike_Force_Records$LAT))
+lhprism_pops$LONG <- as.numeric(trimws(Pace_Data_Project_Invasives_Strike_Force_Records$LONG))
 
 # Remove NA values
 lhprism_pops <- lhprism_pops %>%
@@ -253,8 +264,8 @@ location_lat[234] <- 40.975937
 
 # Build data frame with latitude and longitude values
 df1 <- data.frame(name = location_name,
-                  lat = location_lat,
-                  lng = location_lng)
+                 lat = location_lat,
+                 lng = location_lng)
 # Create leaflet map object
 m1 <- leaflet()
 
@@ -263,6 +274,7 @@ m1 <- leaflet()
 m1 %>%
   addTiles() %>%
   addMarkers(data = df1, popup = location_name)
+
 
 ```
 
